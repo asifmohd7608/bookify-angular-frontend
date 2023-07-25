@@ -1,0 +1,22 @@
+<div class="book">
+  <div class="img_container">
+    <img
+      src="http://localhost:8080/{{ book.File_Path }}"
+      class="book_cover"
+      alt="book cover"
+    />
+  </div>
+
+  <p>{{ book.ISBN }}</p>
+  <p>{{ book.Book_Title | titlecase }}</p>
+  <p>{{ book.Author | titlecase }}</p>
+  <p>{{ book.Publication_Year | date }}</p>
+  <p>{{ book.Language | titlecase }}</p>
+  <p>{{ book.No_Of_Copies_Actual }}</p>
+  <p>{{ book.No_Of_Copies_Current }}</p>
+  <p>{{ book.Available }}</p>
+  <p>{{ book.Price }}</p>
+  <p>{{ book.Category_Type | titlecase }}</p>
+  <p *ngIf="book.Status">Active</p>
+  <p *ngIf="!book.Status">Inactive</p>
+</div>

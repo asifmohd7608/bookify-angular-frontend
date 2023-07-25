@@ -1,0 +1,59 @@
+<form
+  [formGroup]="bookCreateForm"
+  (ngSubmit)="onSubmit()"
+  class="book_add_form"
+>
+  <div class="form_name">
+    <label for="">Title</label>
+    <input type="text" formControlName="Book_Title" />
+  </div>
+  <div class="form_isbn">
+    <label for="">Title</label>
+    <input type="text" formControlName="ISBN" />
+  </div>
+  <div class="form_author">
+    <label for="">Author</label>
+    <input type="text" formControlName="Author" />
+  </div>
+  <div class="form_date">
+    <label for="">Published On</label>
+    <input type="date" formControlName="Publication_Year" />
+  </div>
+  <div class="form_language">
+    <label for="">Language</label>
+    <input type="text" formControlName="Language" />
+  </div>
+  <div class="form_actual_copies">
+    <label for="">Total Stock</label>
+    <input type="text" formControlName="No_Of_Copies_Actual" />
+  </div>
+  <div class="form_current_copies">
+    <label for="">Available Stock</label>
+    <input type="text" formControlName="No_Of_Copies_Current" />
+  </div>
+  <div class="form_availability">
+    <label for="">Available</label>
+    <div>
+      <input type="radio" formControlName="Available" value="1" id="instock" />
+      <label for="instock">In Stock</label>
+    </div>
+    <div>
+      <input
+        type="radio"
+        formControlName="Available"
+        value="0"
+        id="outofstock"
+      />
+      <label for="outofstock">Out Of Stock</label>
+    </div>
+  </div>
+  <div>
+    <label for="">Price</label>
+    <input type="number" formControlName="Price" />
+  </div>
+  <div>
+    <label for="">Cover Image</label>
+    <input type="file" formControlName="imageFile" />
+  </div>
+  <button type="submit">CREATE</button>
+</form>

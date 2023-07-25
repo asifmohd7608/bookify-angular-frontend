@@ -1,0 +1,22 @@
+<h2>Books</h2>
+<div class="admin_book_container">
+  <div class="labels">
+    <p>Cover</p>
+    <p>Isbn</p>
+    <p>Title</p>
+    <p>Author</p>
+    <p>Publication Year</p>
+    <p>Language</p>
+    <p>Total Stock</p>
+    <p>Stock Remaining</p>
+    <p>Available</p>
+    <p>Price</p>
+    <p>Category</p>
+    <p>Status</p>
+  </div>
+  <app-book-table-row
+    *ngFor="let book of books"
+    [book]="book"
+    class="book"
+  ></app-book-table-row>
+</div>
