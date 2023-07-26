@@ -1,59 +1,284 @@
-<form
-  [formGroup]="bookCreateForm"
-  (ngSubmit)="onSubmit()"
-  class="book_add_form"
->
-  <div class="form_name">
-    <label for="">Title</label>
-    <input type="text" formControlName="Book_Title" />
-  </div>
-  <div class="form_isbn">
-    <label for="">Title</label>
-    <input type="text" formControlName="ISBN" />
-  </div>
-  <div class="form_author">
-    <label for="">Author</label>
-    <input type="text" formControlName="Author" />
-  </div>
-  <div class="form_date">
-    <label for="">Published On</label>
-    <input type="date" formControlName="Publication_Year" />
-  </div>
-  <div class="form_language">
-    <label for="">Language</label>
-    <input type="text" formControlName="Language" />
-  </div>
-  <div class="form_actual_copies">
-    <label for="">Total Stock</label>
-    <input type="text" formControlName="No_Of_Copies_Actual" />
-  </div>
-  <div class="form_current_copies">
-    <label for="">Available Stock</label>
-    <input type="text" formControlName="No_Of_Copies_Current" />
-  </div>
-  <div class="form_availability">
-    <label for="">Available</label>
-    <div>
-      <input type="radio" formControlName="Available" value="1" id="instock" />
-      <label for="instock">In Stock</label>
+<form [formGroup]="bookCreateForm" (ngSubmit)="onSubmit()">
+  <div class="book_add_form">
+    <div class="form_isbn">
+      <label for="">Isbn</label>
+      <input type="number" formControlName="ISBN" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookCreateForm.get('ISBN')?.touched ||
+            bookCreateForm.get('ISBN')?.dirty) &&
+          bookCreateForm.get('ISBN')?.errors
+        "
+      >
+        <div *ngIf="bookCreateForm.get('ISBN')?.hasError('required')">
+          ISBN is required
+        </div>
+        <div *ngIf="bookCreateForm.get('ISBN')?.hasError('maxlength')">
+          ISBN should be 10 character long
+        </div>
+        <div *ngIf="bookCreateForm.get('ISBN')?.hasError('minlength')">
+          ISBN should be atleast 10 characters long
+        </div>
+      </div>
+      <div class="error_msg" *ngIf="bookCreateForm.errors?.['isbnError']">
+        Isbn should be 10 characters long
+      </div>
+      <div class="error_msg" *ngIf="bookCreateForm.errors?.['isbnNotNumber']">
+        Isbn should be a number
+      </div>
+      <!-- error msg -->
     </div>
-    <div>
+
+    <div class="form_name">
+      <label for="">Title</label>
+      <input type="text" formControlName="Book_Title" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookCreateForm.get('Book_Title')?.touched ||
+            bookCreateForm.get('Book_Title')?.dirty) &&
+          bookCreateForm.get('Book_Title')?.errors
+        "
+      >
+        <div *ngIf="bookCreateForm.get('Book_Title')?.hasError('required')">
+          Title is required
+        </div>
+        <div *ngIf="bookCreateForm.get('Book_Title')?.hasError('maxlength')">
+          Title should be less than 20 characters long
+        </div>
+        <div *ngIf="bookCreateForm.get('Book_Title')?.hasError('minlength')">
+          Title should be atleast 2 characters long
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_author">
+      <label for="">Author</label>
+      <input type="text" formControlName="Author" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookCreateForm.get('Author')?.touched ||
+            bookCreateForm.get('Author')?.dirty) &&
+          bookCreateForm.get('Author')?.errors
+        "
+      >
+        <div *ngIf="bookCreateForm.get('Author')?.hasError('required')">
+          Author name is required
+        </div>
+        <div *ngIf="bookCreateForm.get('Author')?.hasError('maxlength')">
+          Author name should be less than 20 characters long
+        </div>
+        <div *ngIf="bookCreateForm.get('Author')?.hasError('minlength')">
+          Author name should be atleast 2 characters long
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_categories">
+      <label for="Category_Type">Category</label>
+      <select
+        name="Category_Type"
+        id="Category_Type"
+        formControlName="Category_Type"
+      >
+        <option *ngFor="let category of categories" value="{{ category.id }}">
+          {{ category.category_name }}
+        </option>
+      </select>
+    </div>
+    <div class="form_date">
+      <label for="">Published On</label>
+      <input type="date" formControlName="Publication_Year" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookCreateForm.get('Publication_Year')?.touched ||
+            bookCreateForm.get('Publication_Year')?.dirty) &&
+          bookCreateForm.get('Publication_Year')?.errors
+        "
+      >
+        <div
+          *ngIf="bookCreateForm.get('Publication_Year')?.hasError('required')"
+        >
+          publication date is required
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_language">
+      <label for="">Language</label>
+      <input type="text" formControlName="Language" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookCreateForm.get('Language')?.touched ||
+            bookCreateForm.get('Language')?.dirty) &&
+          bookCreateForm.get('Language')?.errors
+        "
+      >
+        <div *ngIf="bookCreateForm.get('Language')?.hasError('required')">
+          Language is required
+        </div>
+        <div *ngIf="bookCreateForm.get('Language')?.hasError('maxlength')">
+          Language should be 10 character long
+        </div>
+        <div *ngIf="bookCreateForm.get('Language')?.hasError('minlength')">
+          Language should be atleast 3 characters long
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_actual_copies">
+      <label for="">Total Stock</label>
+      <input type="text" formControlName="No_Of_Copies_Actual" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookCreateForm.get('No_Of_Copies_Actual')?.touched ||
+            bookCreateForm.get('No_Of_Copies_Actual')?.dirty) &&
+          bookCreateForm.get('No_Of_Copies_Actual')?.errors
+        "
+      >
+        <div
+          *ngIf="
+            bookCreateForm.get('No_Of_Copies_Actual')?.hasError('required')
+          "
+        >
+          Total Stock is required
+        </div>
+      </div>
+      <div class="error_msg" *ngIf="bookCreateForm?.errors?.['Actualisless']">
+        Total Stock cant be less than available stock
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_current_copies">
+      <label for="">Available Stock</label>
+      <input type="text" formControlName="No_Of_Copies_Current" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookCreateForm.get('No_Of_Copies_Current')?.touched ||
+            bookCreateForm.get('No_Of_Copies_Current')?.dirty) &&
+          bookCreateForm.get('No_Of_Copies_Current')?.errors
+        "
+      >
+        <div
+          *ngIf="
+            bookCreateForm.get('No_Of_Copies_Current')?.hasError('required')
+          "
+        >
+          Current stock is required
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_availability">
+      <label for="">Available</label>
+      <div class="form_radio_container">
+        <div>
+          <div>
+            <input
+              type="radio"
+              formControlName="Available"
+              value="1"
+              id="instock"
+            />
+            <label for="instock">In Stock</label>
+          </div>
+        </div>
+        <div>
+          <input
+            type="radio"
+            formControlName="Available"
+            value="0"
+            id="outofstock"
+          />
+          <label for="outofstock">Out Of Stock</label>
+        </div>
+      </div>
+      <div class="error_msg" *ngIf="bookCreateForm?.errors?.['outofstock']">
+        Availability cant be out of stock if current stock is greater than 0
+      </div>
+      <div class="error_msg" *ngIf="bookCreateForm?.errors?.['instock']">
+        Availability cant be in stock if current stock is greater than 0
+      </div>
+    </div>
+    <div class="form_status">
+      <label for="">Status</label>
+      <div class="form_radio_container">
+        <div>
+          <div>
+            <input
+              type="radio"
+              formControlName="Status"
+              value="1"
+              id="active"
+            />
+            <label for="active">Active</label>
+          </div>
+        </div>
+        <div>
+          <input
+            type="radio"
+            formControlName="Status"
+            value="0"
+            id="inactive"
+          />
+          <label for="inactive">Inactive</label>
+        </div>
+      </div>
+    </div>
+    <div class="form_price">
+      <label for="">Price</label>
+      <input type="number" formControlName="Price" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookCreateForm.get('Price')?.touched ||
+            bookCreateForm.get('Price')?.dirty) &&
+          bookCreateForm.get('Price')?.errors
+        "
+      >
+        <div *ngIf="bookCreateForm.get('Price')?.hasError('required')">
+          Price is required
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_upload">
+      <label for="">Cover Image</label>
       <input
-        type="radio"
-        formControlName="Available"
-        value="0"
-        id="outofstock"
+        type="file"
+        formControlName="imageFile"
+        name="imageFile"
+        (change)="onImageChange($event)"
       />
-      <label for="outofstock">Out Of Stock</label>
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookCreateForm.get('imageFile')?.touched ||
+            bookCreateForm.get('imageFile')?.dirty) &&
+          bookCreateForm.get('imageFile')?.errors
+        "
+      >
+        <div *ngIf="bookCreateForm.get('imageFile')?.hasError('required')">
+          please add an image
+        </div>
+      </div>
+      <!-- error msg -->
     </div>
+    <button type="submit">CREATE</button>
   </div>
-  <div>
-    <label for="">Price</label>
-    <input type="number" formControlName="Price" />
-  </div>
-  <div>
-    <label for="">Cover Image</label>
-    <input type="file" formControlName="imageFile" />
-  </div>
-  <button type="submit">CREATE</button>
 </form>

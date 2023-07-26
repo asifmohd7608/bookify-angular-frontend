@@ -1,6 +1,6 @@
 .book_add_form {
   display: grid;
-  // grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   border: 2px solid rgb(201, 201, 201);
   border-radius: 0.5rem;
@@ -11,7 +11,8 @@
     "isbn isbn language language  "
     "categories categories date date "
     "actual actual current current"
-    " price price  availability availability ";
+    " price price  availability availability "
+    "status status upload upload ";
   .form_name {
     grid-area: name;
   }
@@ -42,12 +43,24 @@
   .form_availability {
     grid-area: availability;
   }
+  .form_status {
+    grid-area: status;
+  }
+  .form_image_upload {
+    grid-area: upload;
+  }
 
   input {
     padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid rgb(129, 129, 129);
+    outline: none;
   }
   select {
     padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid rgb(129, 129, 129);
+    outline: none;
   }
   .form_radio_container {
     display: flex;
@@ -66,4 +79,17 @@
   .form_image {
     max-width: 100px;
   }
+  input.ng-invalid.ng-dirty {
+    border-color: rgb(134, 38, 38);
+  }
+  input.ng-invalid.ng-touched {
+    border-color: rgb(134, 38, 38);
+  }
+}
+
+.error_msg {
+  max-width: fit-content;
+  color: red;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
 }
