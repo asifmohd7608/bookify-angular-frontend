@@ -10,7 +10,9 @@ import { AdminHomeComponent } from './modules/admin/admin-home/admin-home.compon
 import { BookTableRowComponent } from './modules/admin/book-table-row/book-table-row.component'
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { BookCreateFormComponent } from './modules/admin/book-create-form/book-create-form.component';
-import {ReactiveFormsModule} from '@angular/forms'
+import {ReactiveFormsModule} from '@angular/forms';
+import { LoginFormComponent } from './shared/components/login-form/login-form.component';
+import { SignupFormComponent } from './shared/components/signup-form/signup-form.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {ReactiveFormsModule} from '@angular/forms'
     AdminHomeComponent,
     BookTableRowComponent,
     NavbarComponent,
-    BookCreateFormComponent
+    BookCreateFormComponent,
+    LoginFormComponent,
+    SignupFormComponent
   ],
   imports: [
     BrowserModule,

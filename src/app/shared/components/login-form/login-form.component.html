@@ -1,0 +1,49 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login_form">
+  <h2 class="form_heading">Login</h2>
+  <div>
+    <label for="username">Username</label>
+    <input type="text" id="username" formControlName="username" />
+    <div
+      class="error_msg"
+      *ngIf="
+        (loginForm.get('username')?.touched ||
+          loginForm.get('username')?.dirty) &&
+        loginForm.get('username')?.errors
+      "
+    >
+      <span *ngIf="loginForm.get('username')?.hasError('required')"
+        >username cant be empty</span
+      >
+      <span *ngIf="loginForm.get('username')?.hasError('email')"
+        >username is not avalid email</span
+      >
+    </div>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password" />
+    <div
+      class="error_msg"
+      *ngIf="
+        (loginForm.get('password')?.touched ||
+          loginForm.get('password')?.dirty) &&
+        loginForm.get('password')?.errors
+      "
+    >
+      <span *ngIf="loginForm.get('password')?.hasError('required')"
+        >password cant be empty</span
+      >
+      <span *ngIf="loginForm.get('password')?.hasError('minlength')"
+        >password should be minimum 8 characters long</span
+      >
+      <span *ngIf="loginForm.get('password')?.hasError('maxlength')"
+        >password cant be more than 20 characters long</span
+      >
+    </div>
+  </div>
+  <button type="submit">Login</button>
+  <div class="error_msg" *ngIf="errorMsg">
+    <p>{{ errorMsg }}</p>
+  </div>
+</form>
+<!-- [disabled]="loginForm.invalid" -->

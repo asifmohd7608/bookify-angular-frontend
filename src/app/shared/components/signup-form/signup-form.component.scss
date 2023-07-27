@@ -1,0 +1,71 @@
+.container {
+  max-width: 600px;
+  margin-inline: auto;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 30px 5px rgb(199, 199, 245);
+  .form_header {
+    max-width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 1rem;
+  }
+  .signupForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    > div {
+      display: grid;
+      gap: 0.3rem;
+      position: relative;
+
+      input {
+        border: 1px solid rgb(153, 153, 153);
+        border-radius: 0.5rem;
+        height: 2.2rem;
+        width: 100%;
+        padding: 0 0.8rem;
+        outline: none;
+        font-size: 0.8rem;
+      }
+    }
+    input.ng-invalid.ng-dirty {
+      border-color: rgb(214, 60, 60);
+    }
+    input.ng-invalid.ng-touched {
+      border-color: rgb(214, 60, 60);
+    }
+  }
+  .signup_btn {
+    display: block;
+    max-width: fit-content;
+    margin: 1.5rem auto 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: white;
+    border: 2px solid rgb(146, 146, 209);
+    background-color: rgb(67, 67, 114);
+    &:hover {
+      outline: 1px solid rgb(118, 118, 168);
+      background-color: rgb(57, 57, 92);
+    }
+  }
+}
+.input_error_msg {
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 3.9rem;
+  left: 0.5rem;
+}
+@media (width < 830px) {
+  .container {
+    .signupForm {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+.error_msg {
+  color: red;
+  font-size: 0.8rem;
+}

@@ -1,0 +1,52 @@
+.login_form {
+  display: grid;
+  gap: 1rem;
+  max-width: 450px;
+  margin-inline: auto;
+  //   border: 2px solid rgb(153, 153, 153);
+  padding: 3rem 3rem 5rem 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 30px 5px rgb(199, 199, 245);
+  .form_heading {
+    margin: 0.5rem auto;
+  }
+  > div {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    gap: 1rem;
+    input {
+      border: 2px solid rgb(153, 153, 153);
+      border-radius: 0.5rem;
+      height: 3rem;
+      width: 20rem;
+      padding: 0 0.8rem;
+      outline: none;
+      font-size: 1.2rem;
+    }
+  }
+  input.ng-invalid.ng-dirty {
+    border-color: rgb(214, 60, 60);
+  }
+  input.ng-invalid.ng-touched {
+    border-color: rgb(214, 60, 60);
+  }
+  button {
+    max-width: fit-content;
+    margin: 1rem auto 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: white;
+    border: 2px solid rgb(146, 146, 209);
+    background-color: rgb(67, 67, 114);
+    &:hover {
+      outline: 1px solid rgb(118, 118, 168);
+      background-color: rgb(57, 57, 92);
+    }
+  }
+}
+
+.error_msg {
+  color: red;
+  font-size: 0.8rem;
+}
