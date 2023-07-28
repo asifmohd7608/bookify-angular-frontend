@@ -1,0 +1,278 @@
+<form [formGroup]="bookEditForm" (ngSubmit)="onSubmit()">
+  <div class="book_add_form">
+    <div class="form_isbn">
+      <label for="">Isbn</label>
+      <input type="number" formControlName="ISBN" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookEditForm.get('ISBN')?.touched ||
+            bookEditForm.get('ISBN')?.dirty) &&
+          bookEditForm.get('ISBN')?.errors
+        "
+      >
+        <div *ngIf="bookEditForm.get('ISBN')?.hasError('required')">
+          ISBN is required
+        </div>
+        <div *ngIf="bookEditForm.get('ISBN')?.hasError('maxlength')">
+          ISBN should be 10 character long
+        </div>
+        <div *ngIf="bookEditForm.get('ISBN')?.hasError('minlength')">
+          ISBN should be atleast 10 characters long
+        </div>
+      </div>
+      <div class="error_msg" *ngIf="bookEditForm.errors?.['isbnError']">
+        Isbn should be 10 characters long
+      </div>
+      <div class="error_msg" *ngIf="bookEditForm.errors?.['isbnNotNumber']">
+        Isbn should be a number
+      </div>
+      <!-- error msg -->
+    </div>
+
+    <div class="form_name">
+      <label for="">Title</label>
+      <input type="text" formControlName="Book_Title" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookEditForm.get('Book_Title')?.touched ||
+            bookEditForm.get('Book_Title')?.dirty) &&
+          bookEditForm.get('Book_Title')?.errors
+        "
+      >
+        <div *ngIf="bookEditForm.get('Book_Title')?.hasError('required')">
+          Title is required
+        </div>
+        <div *ngIf="bookEditForm.get('Book_Title')?.hasError('maxlength')">
+          Title should be less than 20 characters long
+        </div>
+        <div *ngIf="bookEditForm.get('Book_Title')?.hasError('minlength')">
+          Title should be atleast 2 characters long
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_author">
+      <label for="">Author</label>
+      <input type="text" formControlName="Author" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookEditForm.get('Author')?.touched ||
+            bookEditForm.get('Author')?.dirty) &&
+          bookEditForm.get('Author')?.errors
+        "
+      >
+        <div *ngIf="bookEditForm.get('Author')?.hasError('required')">
+          Author name is required
+        </div>
+        <div *ngIf="bookEditForm.get('Author')?.hasError('maxlength')">
+          Author name should be less than 20 characters long
+        </div>
+        <div *ngIf="bookEditForm.get('Author')?.hasError('minlength')">
+          Author name should be atleast 2 characters long
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_categories">
+      <label for="Category_Type">Category</label>
+      <select
+        name="Category_Type"
+        id="Category_Type"
+        formControlName="Category_Type"
+      >
+        <option *ngFor="let category of categories" value="{{ category.id }}">
+          {{ category.category_name }}
+        </option>
+      </select>
+    </div>
+    <div class="form_date">
+      <label for="">Published On</label>
+      <input type="date" formControlName="Publication_Year" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookEditForm.get('Publication_Year')?.touched ||
+            bookEditForm.get('Publication_Year')?.dirty) &&
+          bookEditForm.get('Publication_Year')?.errors
+        "
+      >
+        <div *ngIf="bookEditForm.get('Publication_Year')?.hasError('required')">
+          publication date is required
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_language">
+      <label for="">Language</label>
+      <input type="text" formControlName="Language" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookEditForm.get('Language')?.touched ||
+            bookEditForm.get('Language')?.dirty) &&
+          bookEditForm.get('Language')?.errors
+        "
+      >
+        <div *ngIf="bookEditForm.get('Language')?.hasError('required')">
+          Language is required
+        </div>
+        <div *ngIf="bookEditForm.get('Language')?.hasError('maxlength')">
+          Language should be 10 character long
+        </div>
+        <div *ngIf="bookEditForm.get('Language')?.hasError('minlength')">
+          Language should be atleast 3 characters long
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_actual_copies">
+      <label for="">Total Stock</label>
+      <input type="text" formControlName="No_Of_Copies_Actual" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookEditForm.get('No_Of_Copies_Actual')?.touched ||
+            bookEditForm.get('No_Of_Copies_Actual')?.dirty) &&
+          bookEditForm.get('No_Of_Copies_Actual')?.errors
+        "
+      >
+        <div
+          *ngIf="bookEditForm.get('No_Of_Copies_Actual')?.hasError('required')"
+        >
+          Total Stock is required
+        </div>
+      </div>
+      <div class="error_msg" *ngIf="bookEditForm?.errors?.['Actualisless']">
+        Total Stock cant be less than available stock
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_current_copies">
+      <label for="">Available Stock</label>
+      <input type="text" formControlName="No_Of_Copies_Current" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookEditForm.get('No_Of_Copies_Current')?.touched ||
+            bookEditForm.get('No_Of_Copies_Current')?.dirty) &&
+          bookEditForm.get('No_Of_Copies_Current')?.errors
+        "
+      >
+        <div
+          *ngIf="bookEditForm.get('No_Of_Copies_Current')?.hasError('required')"
+        >
+          Current stock is required
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_availability">
+      <label for="">Available</label>
+      <div class="form_radio_container">
+        <div>
+          <div>
+            <input
+              type="radio"
+              formControlName="Available"
+              value="1"
+              id="instock"
+            />
+            <label for="instock">In Stock</label>
+          </div>
+        </div>
+        <div>
+          <input
+            type="radio"
+            formControlName="Available"
+            value="0"
+            id="outofstock"
+          />
+          <label for="outofstock">Out Of Stock</label>
+        </div>
+      </div>
+      <div class="error_msg" *ngIf="bookEditForm?.errors?.['outofstock']">
+        Availability cant be out of stock if current stock is greater than 0
+      </div>
+      <div class="error_msg" *ngIf="bookEditForm?.errors?.['instock']">
+        Availability cant be in stock if current stock is greater than 0
+      </div>
+    </div>
+    <div class="form_status">
+      <label for="">Status</label>
+      <div class="form_radio_container">
+        <div>
+          <div>
+            <input
+              type="radio"
+              formControlName="Status"
+              value="1"
+              id="active"
+            />
+            <label for="active">Active</label>
+          </div>
+        </div>
+        <div>
+          <input
+            type="radio"
+            formControlName="Status"
+            value="0"
+            id="inactive"
+          />
+          <label for="inactive">Inactive</label>
+        </div>
+      </div>
+    </div>
+    <div class="form_price">
+      <label for="">Price</label>
+      <input type="number" formControlName="Price" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookEditForm.get('Price')?.touched ||
+            bookEditForm.get('Price')?.dirty) &&
+          bookEditForm.get('Price')?.errors
+        "
+      >
+        <div *ngIf="bookEditForm.get('Price')?.hasError('required')">
+          Price is required
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <div class="form_upload">
+      <label for="">Cover Image</label>
+      <input
+        type="file"
+        formControlName="imageFile"
+        name="imageFile"
+        (change)="onImageChange($event)"
+      />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookEditForm.get('imageFile')?.touched ||
+            bookEditForm.get('imageFile')?.dirty) &&
+          bookEditForm.get('imageFile')?.errors
+        "
+      >
+        <div *ngIf="bookEditForm.get('imageFile')?.hasError('required')">
+          please add an image
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
+    <button type="submit">CREATE</button>
+  </div>
+</form>

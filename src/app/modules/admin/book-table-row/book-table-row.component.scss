@@ -1,6 +1,6 @@
 .book {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(14, 1fr);
   align-items: center;
   justify-items: center;
   background: rgba(255, 255, 255, 0.25);
@@ -20,5 +20,24 @@
       height: 100%;
       object-fit: cover;
     }
+  }
+}
+.active_btn {
+  background-color: rgb(177, 14, 14);
+  color: white;
+  width: 90px;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border: 2px solid rgb(179, 19, 19);
+  &:hover {
+    border: 3px solid rgb(214, 97, 97);
+  }
+}
+.inactive_btn {
+  @extend .active_btn;
+  background-color: rgb(8, 141, 15);
+  border: 2px solid rgb(91, 175, 95);
+  &:hover {
+    border: 3px solid rgb(91, 175, 95);
   }
 }

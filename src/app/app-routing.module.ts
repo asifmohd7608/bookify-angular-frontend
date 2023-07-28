@@ -5,23 +5,39 @@ import { AdminHomeComponent } from './modules/admin/admin-home/admin-home.compon
 import { BookCreateFormComponent } from './modules/admin/book-create-form/book-create-form.component';
 import { LoginFormComponent } from './shared/components/login-form/login-form.component';
 import { SignupFormComponent } from './shared/components/signup-form/signup-form.component';
-import { roleRouteGuard } from './core/guards/role-route.guard';
+import { adminGuard, isLoggedIn, userGuard } from './core/guards/route.guard';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { BookEditFormComponent } from './modules/admin/book-edit-form/book-edit-form.component';
 
 const routes: Routes = [
-  { path:'home',component:HomeComponent},
-  { path:'admin', children:[
-    {path:'',component:AdminHomeComponent},
-    {path:'create',component:BookCreateFormComponent,canActivate:[roleRouteGuard]}
-  ]},
-  {path:'login',component:LoginFormComponent},
-  {path:'signup',children:[
-    {path:'user',component:SignupFormComponent},
-    {path:'admin',component:SignupFormComponent},
-  ]}
+  { path: '', component: LoginFormComponent, canActivate: [isLoggedIn] },
+  { path: 'home', component: HomeComponent, canActivate: [userGuard] },
+  {
+    path: 'admin',
+    children: [
+      { path: '', component: AdminHomeComponent },
+      {
+        path: 'create',
+        component: BookCreateFormComponent,
+      },
+      { path: 'book/edit/:id', component: BookEditFormComponent },
+    ],
+    canActivate: [adminGuard],
+  },
+  { path: 'login', component: LoginFormComponent, canActivate: [isLoggedIn] },
+  {
+    path: 'signup',
+    children: [
+      { path: 'user', component: SignupFormComponent },
+      { path: 'admin', component: SignupFormComponent },
+    ],
+    canActivate: [isLoggedIn],
+  },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

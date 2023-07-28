@@ -9,24 +9,30 @@ export class AuthService {
 
   constructor(public http:HttpClient) { }
 
-  url='http://localhost:8080/api'
+  url='http://localhost:8080/api';
 
 
   userLogin(data:{}){
-    return this.http.post<any>(`${this.url}/auth/login/user`,data)
+    return this.http.post<any>(`${this.url}/auth/login/user`,data);
   }
   userSignUp(data:{},url:string){
     if(url==='/signup/user'){
-   return this.http.post<any>(`${this.url}/auth/signup/user`,data)
+   return this.http.post<any>(`${this.url}/auth/signup/user`,data);
     }else{
-      return  this.http.post<any>(`${this.url}/auth/signup/admin`,data)
+      return  this.http.post<any>(`${this.url}/auth/signup/admin`,data);
     }
   }
-  getRole():boolean{
-    let res=this.http.get<any>(`${this.url}/getrole`)
-    let data=of(res)
-    console.log(data)
-    return true
+  getRole(){
+    return this.http.get<any>(`${this.url}/auth/status`);
+  }
+  getToken(){
+    let token=localStorage.getItem('Token');
+    return token;
+  }
+  logout(){
+    localStorage.setItem('Token','');
+    localStorage.setItem('Role','');
+    return true;
   }
 
 }

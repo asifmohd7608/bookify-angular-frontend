@@ -30,7 +30,13 @@ onSubmit(){
     console.log(res)
     if(res.success){
       localStorage.setItem('Token',res.user.Token);
-      res.user.Role==='admin' ? this.router.navigate(['/admin']) : this.router.navigate(['/user'])
+      if(res.user.Role==='admin') {
+        this.router.navigate(['/admin'])
+        localStorage.setItem('Role','admin') 
+      }else{
+        localStorage.setItem('Role','user') 
+          this.router.navigate(['/user'])
+        } 
     }else{
     this.errorMsg=res.errorMessage
     }

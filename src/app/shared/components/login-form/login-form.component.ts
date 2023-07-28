@@ -21,10 +21,12 @@ export class LoginFormComponent {
       this.loginForm.controls['password'].markAsTouched();
       this.auth.userLogin(this.loginForm.value).subscribe(res=>{
         if(res.success){
-          localStorage.setItem('token',res.user.Token)
+          localStorage.setItem('Token',res.user.Token)
           if(res.user.Role==='admin'){
-            this.router.navigate(['/admin'])
+            localStorage.setItem('Role','admin');
+            this.router.navigate(['/admin']);
           }else{
+            localStorage.setItem('Role','user');
             this.router.navigate(['/home'])
           }
         }else{

@@ -19,4 +19,11 @@
   <p>{{ book.Category_Type | titlecase }}</p>
   <p *ngIf="book.Status">Active</p>
   <p *ngIf="!book.Status">Inactive</p>
+  <button
+    (click)="changeStatus(book.id)"
+    [ngClass]="book.Status == 0 ? 'inactive_btn' : 'active_btn'"
+  >
+    {{ book.Status === 0 ? "Activate" : "Deactivate" }}
+  </button>
+  <button (click)="loadEditForm(book.id)">Edit</button>
 </div>
