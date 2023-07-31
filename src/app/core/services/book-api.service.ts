@@ -26,4 +26,17 @@ export class BookApiService {
   getBookById(id: any) {
     return this.http.get<any>(`${this.url}/books/${id}`);
   }
+
+  addToCart(id: number) {
+    return this.http.post<any>(`${this.url}/user/addtocart`, { id });
+  }
+  getCart() {
+    return this.http.get<any>(`${this.url}/user/getcart`);
+  }
+  removeCartItem(id: number) {
+    return this.http.post<any>(`${this.url}/user/cart/removeitem`, { id });
+  }
+  deleteCart() {
+    return this.http.delete<any>(`${this.url}/user/cart/delete`);
+  }
 }

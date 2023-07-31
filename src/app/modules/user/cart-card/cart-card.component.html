@@ -1,0 +1,7 @@
+<div class="cart_item">
+  <p>{{ cartItem.Book_Title }}</p>
+  <p>{{ cartItem.Unit_Price }}</p>
+  <p>{{ cartItem.Quantity }}</p>
+  <p>{{ cartItem.Total_Price }}</p>
+  <button (click)="removeFromCart(cartItem.Book_Id)">Remove</button>
+</div>

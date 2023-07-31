@@ -4,6 +4,7 @@
   </div>
   <div class="navbar_right">
     <a *ngIf="role === 'admin'" routerLink="/admin/create">Create Book</a>
+    <a *ngIf="role === 'user'" routerLink="/user/cart">Cart</a>
     <span class="nav_link" *ngIf="token" (click)="logout()">Logout</span>
   </div>
 </div>

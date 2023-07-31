@@ -8,6 +8,7 @@ import { SignupFormComponent } from './shared/components/signup-form/signup-form
 import { adminGuard, isLoggedIn, userGuard } from './core/guards/route.guard';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { BookEditFormComponent } from './modules/admin/book-edit-form/book-edit-form.component';
+import { CartComponent } from './modules/user/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: LoginFormComponent, canActivate: [isLoggedIn] },
@@ -23,6 +24,14 @@ const routes: Routes = [
       { path: 'book/edit/:id', component: BookEditFormComponent },
     ],
     canActivate: [adminGuard],
+  },
+  {
+    path: 'user',
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'cart', component: CartComponent },
+    ],
+    canActivate: [userGuard],
   },
   { path: 'login', component: LoginFormComponent, canActivate: [isLoggedIn] },
   {

@@ -6,158 +6,158 @@
   font-family: "Open Sans", sans-serif;
 }
 
-.wrapper {
-  max-width: 1300px;
-  margin: 0 auto;
-}
+// .wrapper {
+//   max-width: 1300px;
+//   margin: 0 auto;
+// }
 
-.books_heading {
-  max-width: fit-content;
-  margin: 1rem auto;
-}
-.books_table {
-  max-width: fit-content;
-  margin: 3rem auto;
-  border: 2px solid black;
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 0.5rem;
-  td,
-  th {
-    padding: 0.5rem;
-    text-align: left;
-    // border: 2px solid black;
-  }
-  th {
-    border-bottom: 2px solid black;
-  }
-  .book_edit_btn {
-    max-width: fit-content;
-    color: white;
-    padding: 0.5rem 0.8rem;
-    border-radius: 0.2rem;
-    border: none;
-    background-color: rgb(32, 138, 209);
-    &:hover {
-      background-color: rgb(18, 85, 161);
-      box-shadow: 0 0 0px 3px rgb(211, 211, 211);
-    }
-  }
-}
+// .books_heading {
+//   max-width: fit-content;
+//   margin: 1rem auto;
+// }
+// .books_table {
+//   max-width: fit-content;
+//   margin: 3rem auto;
+//   border: 2px solid black;
+//   border-collapse: separate;
+//   border-spacing: 0;
+//   border-radius: 0.5rem;
+//   td,
+//   th {
+//     padding: 0.5rem;
+//     text-align: left;
+//     // border: 2px solid black;
+//   }
+//   th {
+//     border-bottom: 2px solid black;
+//   }
+//   .book_edit_btn {
+//     max-width: fit-content;
+//     color: white;
+//     padding: 0.5rem 0.8rem;
+//     border-radius: 0.2rem;
+//     border: none;
+//     background-color: rgb(32, 138, 209);
+//     &:hover {
+//       background-color: rgb(18, 85, 161);
+//       box-shadow: 0 0 0px 3px rgb(211, 211, 211);
+//     }
+//   }
+// }
 
-.button_container {
-  // max-width: fit-content;
-  display: flex;
-  justify-content: flex-end;
-  margin: 1rem auto;
-  button {
-    padding: 0.5rem 2rem;
-  }
-}
-.add_book_form_header {
-  max-width: fit-content;
-  margin: 2rem auto;
-}
-.book_add_form {
-  display: grid;
-  // grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  border: 2px solid rgb(201, 201, 201);
-  border-radius: 0.5rem;
-  padding: 2rem 2rem;
-  margin: 1rem auto;
-  grid-template-areas:
-    "name name author author "
-    "isbn isbn language language  "
-    "categories categories date date "
-    "actual actual current current"
-    " price price  availability availability ";
-  .form_name {
-    grid-area: name;
-  }
-  .form_isbn {
-    grid-area: isbn;
-  }
-  .form_author {
-    grid-area: author;
-  }
-  .form_categories {
-    grid-area: categories;
-  }
-  .form_date {
-    grid-area: date;
-  }
-  .form_price {
-    grid-area: price;
-  }
-  .form_language {
-    grid-area: language;
-  }
-  .form_actual_copies {
-    grid-area: actual;
-  }
-  .form_current_copies {
-    grid-area: current;
-  }
-  .form_availability {
-    grid-area: availability;
-  }
+// .button_container {
+//   // max-width: fit-content;
+//   display: flex;
+//   justify-content: flex-end;
+//   margin: 1rem auto;
+//   button {
+//     padding: 0.5rem 2rem;
+//   }
+// }
+// .add_book_form_header {
+//   max-width: fit-content;
+//   margin: 2rem auto;
+// }
+// .book_add_form {
+//   display: grid;
+//   // grid-template-columns: repeat(4, 1fr);
+//   gap: 1rem;
+//   border: 2px solid rgb(201, 201, 201);
+//   border-radius: 0.5rem;
+//   padding: 2rem 2rem;
+//   margin: 1rem auto;
+//   grid-template-areas:
+//     "name name author author "
+//     "isbn isbn language language  "
+//     "categories categories date date "
+//     "actual actual current current"
+//     " price price  availability availability ";
+//   .form_name {
+//     grid-area: name;
+//   }
+//   .form_isbn {
+//     grid-area: isbn;
+//   }
+//   .form_author {
+//     grid-area: author;
+//   }
+//   .form_categories {
+//     grid-area: categories;
+//   }
+//   .form_date {
+//     grid-area: date;
+//   }
+//   .form_price {
+//     grid-area: price;
+//   }
+//   .form_language {
+//     grid-area: language;
+//   }
+//   .form_actual_copies {
+//     grid-area: actual;
+//   }
+//   .form_current_copies {
+//     grid-area: current;
+//   }
+//   .form_availability {
+//     grid-area: availability;
+//   }
 
-  input {
-    padding: 0.5rem 1rem;
-  }
-  select {
-    padding: 0.5rem 1rem;
-  }
-  .form_radio_container {
-    display: flex;
-    gap: 1rem;
-  }
-  > div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  button {
-    padding: 0.5rem 0.8rem;
-    grid-column: 1 / span 2;
-    margin: 0.5rem auto 0 auto;
-  }
-  .form_image {
-    max-width: 100px;
-  }
-}
-.error_msg {
-  max-width: fit-content;
-  color: red;
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
-}
-.admin_signup_form {
-  max-width: 400px;
-  display: grid;
-  gap: 1rem;
-  margin: 5rem auto 0 auto;
-  border: 1px solid rgb(134, 134, 134);
-  padding: 2rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 15px 5px rgb(189, 189, 189);
-  input {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: 2px solid rgb(134, 134, 134);
-  }
-  button {
-    max-width: fit-content;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem auto 0 auto;
-  }
-}
-.table_book_cover {
-  width: 50px;
-  // max-height: 100px;
-  object-fit: cover;
-}
+//   input {
+//     padding: 0.5rem 1rem;
+//   }
+//   select {
+//     padding: 0.5rem 1rem;
+//   }
+//   .form_radio_container {
+//     display: flex;
+//     gap: 1rem;
+//   }
+//   > div {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 0.5rem;
+//   }
+//   button {
+//     padding: 0.5rem 0.8rem;
+//     grid-column: 1 / span 2;
+//     margin: 0.5rem auto 0 auto;
+//   }
+//   .form_image {
+//     max-width: 100px;
+//   }
+// }
+// .error_msg {
+//   max-width: fit-content;
+//   color: red;
+//   font-size: 0.8rem;
+//   letter-spacing: 0.5px;
+// }
+// .admin_signup_form {
+//   max-width: 400px;
+//   display: grid;
+//   gap: 1rem;
+//   margin: 5rem auto 0 auto;
+//   border: 1px solid rgb(134, 134, 134);
+//   padding: 2rem 1rem;
+//   border-radius: 0.5rem;
+//   box-shadow: 0 0 15px 5px rgb(189, 189, 189);
+//   input {
+//     padding: 0.5rem 1rem;
+//     border-radius: 0.5rem;
+//     border: 2px solid rgb(134, 134, 134);
+//   }
+//   button {
+//     max-width: fit-content;
+//     padding: 0.5rem 1rem;
+//     margin: 0.5rem auto 0 auto;
+//   }
+// }
+// .table_book_cover {
+//   width: 50px;
+//   // max-height: 100px;
+//   object-fit: cover;
+// }
 
 .books_container {
   display: grid;
@@ -203,307 +203,307 @@
   }
 }
 
-.cart_heading {
-  max-width: fit-content;
-  margin-inline: auto;
-}
-.cart_table {
-  max-width: fit-content;
-  margin: 3rem auto;
-  border: 2px solid rgb(116, 116, 116);
-  border-radius: 0.5rem;
-  border-spacing: 30px;
+// .cart_heading {
+//   max-width: fit-content;
+//   margin-inline: auto;
+// }
+// .cart_table {
+//   max-width: fit-content;
+//   margin: 3rem auto;
+//   border: 2px solid rgb(116, 116, 116);
+//   border-radius: 0.5rem;
+//   border-spacing: 30px;
 
-  padding: 1rem 2rem;
-  text-align: center;
-  td,
-  th {
-    padding: 0.5rem;
-  }
-  th {
-    // border-bottom: 2px solid rgb(116, 116, 116);
-  }
-  .cart_image {
-    width: 70px;
-    height: 100px;
-    object-fit: cover;
-    object-position: center;
-  }
-  .cart_quantity {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    button {
-      padding: 0.2rem 0.5rem;
-    }
-  }
-  .cart_item_delete_btn {
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border: none;
-    background-color: rgb(202, 45, 45);
-    border-radius: 0.2rem;
-    &:hover {
-      background-color: rgb(153, 0, 0);
-      box-shadow: 0 0 0px 3px rgb(211, 211, 211);
-    }
-  }
-  .cart_clear_btn {
-    @extend .cart_item_delete_btn;
-  }
-  .cart_checkout_btn {
-    @extend .cart_item_delete_btn;
-    background-color: green;
-    &:hover {
-      background-color: rgb(25, 94, 25);
-    }
-  }
-  .coupon_apply_btn {
-    padding: 0.3rem 0.8rem;
-    background-color: rgb(16, 95, 168);
-    color: white;
-    border-radius: 0.2rem;
-    border: none;
-    &:hover {
-      background-color: rgb(13, 69, 122);
-      box-shadow: 0 0 0px 3px rgb(211, 211, 211);
-    }
-  }
-}
-.coupon_apply_form_header {
-  max-width: fit-content;
-  margin: 0.5rem auto;
-}
-.coupon_apply_form_container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  :nth-child(n) {
-    max-width: fit-content;
-    margin-inline: auto;
-  }
-  .coupon_apply_options_wrapper {
-    display: flex;
-    gap: 1rem;
-  }
-  select {
-    padding: 0.3rem 0.8rem;
-  }
-  button {
-    padding: 0.3rem 0.8rem;
-  }
-}
-.cart_empty_div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.3rem;
-  margin: 10rem auto 1rem auto;
-  .cart_empty_header {
-    color: rgb(146, 146, 146);
-  }
-  .cart_empty_link {
-    a {
-      text-decoration: underline 2px solid rgb(83, 82, 82);
-      text-underline-offset: 3px;
-      &:visited {
-        color: inherit;
-      }
-    }
-  }
-}
-.coupon_popup {
-  display: none;
-  position: fixed;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 400px;
-  height: 200px;
-  border: 2px solid black;
-  border-radius: 0.5rem;
-  background-color: white;
-}
-.toggle_popup {
-  display: block;
-}
-.success_msg {
-  position: fixed;
-  top: 5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0.5rem 1rem;
-  color: rgb(31, 83, 43);
-  border: 2px solid rgb(0, 117, 0);
-  border-radius: 0.5rem;
-  max-width: fit-content;
-  margin-inline: auto;
-  background-color: rgb(165, 201, 165);
-}
-.err_msg {
-  @extend .success_msg;
-  color: rgb(92, 0, 0);
-  background-color: rgb(231, 187, 187);
-  border: 2px solid rgb(122, 0, 0);
-}
+//   padding: 1rem 2rem;
+//   text-align: center;
+//   td,
+//   th {
+//     padding: 0.5rem;
+//   }
+//   th {
+//     // border-bottom: 2px solid rgb(116, 116, 116);
+//   }
+//   .cart_image {
+//     width: 70px;
+//     height: 100px;
+//     object-fit: cover;
+//     object-position: center;
+//   }
+//   .cart_quantity {
+//     display: flex;
+//     align-items: center;
+//     gap: 1rem;
+//     button {
+//       padding: 0.2rem 0.5rem;
+//     }
+//   }
+//   .cart_item_delete_btn {
+//     color: white;
+//     padding: 0.3rem 0.8rem;
+//     border: none;
+//     background-color: rgb(202, 45, 45);
+//     border-radius: 0.2rem;
+//     &:hover {
+//       background-color: rgb(153, 0, 0);
+//       box-shadow: 0 0 0px 3px rgb(211, 211, 211);
+//     }
+//   }
+//   .cart_clear_btn {
+//     @extend .cart_item_delete_btn;
+//   }
+//   .cart_checkout_btn {
+//     @extend .cart_item_delete_btn;
+//     background-color: green;
+//     &:hover {
+//       background-color: rgb(25, 94, 25);
+//     }
+//   }
+//   .coupon_apply_btn {
+//     padding: 0.3rem 0.8rem;
+//     background-color: rgb(16, 95, 168);
+//     color: white;
+//     border-radius: 0.2rem;
+//     border: none;
+//     &:hover {
+//       background-color: rgb(13, 69, 122);
+//       box-shadow: 0 0 0px 3px rgb(211, 211, 211);
+//     }
+//   }
+// }
+// .coupon_apply_form_header {
+//   max-width: fit-content;
+//   margin: 0.5rem auto;
+// }
+// .coupon_apply_form_container {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 1rem;
+//   :nth-child(n) {
+//     max-width: fit-content;
+//     margin-inline: auto;
+//   }
+//   .coupon_apply_options_wrapper {
+//     display: flex;
+//     gap: 1rem;
+//   }
+//   select {
+//     padding: 0.3rem 0.8rem;
+//   }
+//   button {
+//     padding: 0.3rem 0.8rem;
+//   }
+// }
+// .cart_empty_div {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 0.3rem;
+//   margin: 10rem auto 1rem auto;
+//   .cart_empty_header {
+//     color: rgb(146, 146, 146);
+//   }
+//   .cart_empty_link {
+//     a {
+//       text-decoration: underline 2px solid rgb(83, 82, 82);
+//       text-underline-offset: 3px;
+//       &:visited {
+//         color: inherit;
+//       }
+//     }
+//   }
+// }
+// .coupon_popup {
+//   display: none;
+//   position: fixed;
+//   left: 0;
+//   right: 0;
+//   margin: auto;
+//   width: 400px;
+//   height: 200px;
+//   border: 2px solid black;
+//   border-radius: 0.5rem;
+//   background-color: white;
+// }
+// .toggle_popup {
+//   display: block;
+// }
+// .success_msg {
+//   position: fixed;
+//   top: 5rem;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   padding: 0.5rem 1rem;
+//   color: rgb(31, 83, 43);
+//   border: 2px solid rgb(0, 117, 0);
+//   border-radius: 0.5rem;
+//   max-width: fit-content;
+//   margin-inline: auto;
+//   background-color: rgb(165, 201, 165);
+// }
+// .err_msg {
+//   @extend .success_msg;
+//   color: rgb(92, 0, 0);
+//   background-color: rgb(231, 187, 187);
+//   border: 2px solid rgb(122, 0, 0);
+// }
 
-.about_details {
-  display: grid;
-  margin: 2rem auto;
-  gap: 2rem;
-}
-.search_form {
-  display: flex;
-  flex-direction: column;
-  max-width: fit-content;
-  margin: 2rem auto;
-  gap: 1rem;
-  > div {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
-  }
-  input {
-    padding: 0.5rem 1rem;
-    width: 12rem;
-    border: 2px solid rgb(172, 172, 172);
-    border-radius: 0.5rem;
-  }
-  select {
-    width: 12rem;
-    padding: 0.5rem 1rem;
-    background-color: transparent;
-    border: 2px solid rgb(172, 172, 172);
-    border-radius: 0.5rem;
-  }
-  button {
-    padding: 0.3rem 0.8rem;
-    max-width: fit-content;
-    margin-inline: auto;
-    border: none;
-    color: white;
-    border-radius: 0.3rem;
-    background-color: rgb(19, 145, 138);
-    &:hover {
-      background-color: rgb(15, 112, 107);
-      box-shadow: 0 0 0px 3px rgb(211, 211, 211);
-    }
-  }
-}
-.coupons_table {
-  @extend .books_table;
-  min-width: 100%;
-  text-align: center;
-}
-.button_container_coupon {
-  @extend .button_container;
-}
-.coupon_create_form {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
+// .about_details {
+//   display: grid;
+//   margin: 2rem auto;
+//   gap: 2rem;
+// }
+// .search_form {
+//   display: flex;
+//   flex-direction: column;
+//   max-width: fit-content;
+//   margin: 2rem auto;
+//   gap: 1rem;
+//   > div {
+//     display: flex;
+//     gap: 1rem;
+//     justify-content: space-between;
+//     align-items: center;
+//   }
+//   input {
+//     padding: 0.5rem 1rem;
+//     width: 12rem;
+//     border: 2px solid rgb(172, 172, 172);
+//     border-radius: 0.5rem;
+//   }
+//   select {
+//     width: 12rem;
+//     padding: 0.5rem 1rem;
+//     background-color: transparent;
+//     border: 2px solid rgb(172, 172, 172);
+//     border-radius: 0.5rem;
+//   }
+//   button {
+//     padding: 0.3rem 0.8rem;
+//     max-width: fit-content;
+//     margin-inline: auto;
+//     border: none;
+//     color: white;
+//     border-radius: 0.3rem;
+//     background-color: rgb(19, 145, 138);
+//     &:hover {
+//       background-color: rgb(15, 112, 107);
+//       box-shadow: 0 0 0px 3px rgb(211, 211, 211);
+//     }
+//   }
+// }
+// .coupons_table {
+//   @extend .books_table;
+//   min-width: 100%;
+//   text-align: center;
+// }
+// .button_container_coupon {
+//   @extend .button_container;
+// }
+// .coupon_create_form {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap: 2rem;
+//   max-width: 800px;
+//   margin: 0 auto 2rem auto;
 
-  > div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    > input {
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      border: 2px solid rgb(66, 66, 66);
-      &:focus {
-        border: 2px solid rgb(49, 49, 250);
-        outline: 1px solid rgb(49, 49, 250);
-      }
-    }
-    select {
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      border: 2px solid rgb(66, 66, 66);
-    }
-  }
-  .coupon_image_upload_container {
-    // grid-column: span 2;
-  }
-  .form_button {
-    grid-column: span 2;
-    padding: 0.2rem 0.8rem;
-    max-width: fit-content;
-    margin-inline: auto;
-  }
-  .coupon_status_radio {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    > div {
-      display: flex;
-      gap: 2rem;
-    }
-  }
-  .date_field {
-    flex-direction: row;
-    justify-content: space-between;
-    .validity_field {
-      display: flex;
-      flex-direction: column;
-      input {
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        border: 2px solid rgb(66, 66, 66);
-      }
-    }
-  }
-}
-.coupon_header {
-  max-width: fit-content;
-  margin: 1rem auto;
-}
-.error_msg_from_fetch {
-  @extend .err_msg;
-  display: none;
-}
-.show_error_msg_from_fetch {
-  display: block;
-  position: fixed;
-}
-.success_msg_from_fetch {
-  @extend .success_msg;
-  display: none;
-}
-.show_success_msg_from_fetch {
-  display: block;
-  position: fixed;
-}
-.back_btn {
-  background-color: transparent;
-  border: none;
-  font-size: 1rem;
-  font-weight: 600;
-  &:hover {
-    text-decoration: underline 2px solid black;
-    text-underline-offset: 0.3rem;
-  }
-}
-.activate_btn {
-  color: white;
-  width: 100px;
-  padding: 0.5rem 0.8rem;
-  border-radius: 0.2rem;
-  border: none;
-  background-color: green;
-  &:hover {
-    background-color: rgb(25, 94, 25);
-    box-shadow: 0 0 0px 3px rgb(211, 211, 211);
-  }
-}
-.deactivate_btn {
-  @extend .activate_btn;
-  background-color: rgb(202, 45, 45);
-  &:hover {
-    background-color: rgb(153, 0, 0);
-  }
-}
+//   > div {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 0.3rem;
+//     > input {
+//       padding: 0.5rem 1rem;
+//       border-radius: 0.5rem;
+//       border: 2px solid rgb(66, 66, 66);
+//       &:focus {
+//         border: 2px solid rgb(49, 49, 250);
+//         outline: 1px solid rgb(49, 49, 250);
+//       }
+//     }
+//     select {
+//       padding: 0.5rem 1rem;
+//       border-radius: 0.5rem;
+//       border: 2px solid rgb(66, 66, 66);
+//     }
+//   }
+//   .coupon_image_upload_container {
+//     // grid-column: span 2;
+//   }
+//   .form_button {
+//     grid-column: span 2;
+//     padding: 0.2rem 0.8rem;
+//     max-width: fit-content;
+//     margin-inline: auto;
+//   }
+//   .coupon_status_radio {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 0.5rem;
+//     > div {
+//       display: flex;
+//       gap: 2rem;
+//     }
+//   }
+//   .date_field {
+//     flex-direction: row;
+//     justify-content: space-between;
+//     .validity_field {
+//       display: flex;
+//       flex-direction: column;
+//       input {
+//         padding: 0.5rem 1rem;
+//         border-radius: 0.5rem;
+//         border: 2px solid rgb(66, 66, 66);
+//       }
+//     }
+//   }
+// }
+// .coupon_header {
+//   max-width: fit-content;
+//   margin: 1rem auto;
+// }
+// .error_msg_from_fetch {
+//   @extend .err_msg;
+//   display: none;
+// }
+// .show_error_msg_from_fetch {
+//   display: block;
+//   position: fixed;
+// }
+// .success_msg_from_fetch {
+//   @extend .success_msg;
+//   display: none;
+// }
+// .show_success_msg_from_fetch {
+//   display: block;
+//   position: fixed;
+// }
+// .back_btn {
+//   background-color: transparent;
+//   border: none;
+//   font-size: 1rem;
+//   font-weight: 600;
+//   &:hover {
+//     text-decoration: underline 2px solid black;
+//     text-underline-offset: 0.3rem;
+//   }
+// }
+// .activate_btn {
+//   color: white;
+//   width: 100px;
+//   padding: 0.5rem 0.8rem;
+//   border-radius: 0.2rem;
+//   border: none;
+//   background-color: green;
+//   &:hover {
+//     background-color: rgb(25, 94, 25);
+//     box-shadow: 0 0 0px 3px rgb(211, 211, 211);
+//   }
+// }
+// .deactivate_btn {
+//   @extend .activate_btn;
+//   background-color: rgb(202, 45, 45);
+//   &:hover {
+//     background-color: rgb(153, 0, 0);
+//   }
+// }

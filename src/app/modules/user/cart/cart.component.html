@@ -1,0 +1,17 @@
+<h2>Cart</h2>
+<div *ngIf="cart" class="admin_book_container">
+  <div class="labels">
+    <p>Name</p>
+    <p>Unit Price</p>
+    <p>Quantity</p>
+    <p>Total Price</p>
+    <p>Delete</p>
+  </div>
+  <app-cart-card
+    *ngFor="let cartItem of cart"
+    [cartItem]="cartItem"
+    [cart]="cart"
+    (remove)="removeFromCart($event)"
+  ></app-cart-card>
+</div>
+<button (click)="deleteCart()">Delete Cart</button>

@@ -41,3 +41,12 @@
     border: 3px solid rgb(91, 175, 95);
   }
 }
+.submit {
+  @extend .active_btn;
+  width: 60px;
+  background-color: rgb(8, 88, 141);
+  border: 2px solid rgb(113, 183, 230);
+  &:hover {
+    border: 3px solid rgb(113, 183, 230);
+  }
+}

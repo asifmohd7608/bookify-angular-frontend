@@ -15,6 +15,8 @@ import { LoginFormComponent } from './shared/components/login-form/login-form.co
 import { SignupFormComponent } from './shared/components/signup-form/signup-form.component';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { BookEditFormComponent } from './modules/admin/book-edit-form/book-edit-form.component';
+import { CartComponent } from './modules/user/cart/cart.component';
+import { CartCardComponent } from './modules/user/cart-card/cart-card.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { BookEditFormComponent } from './modules/admin/book-edit-form/book-edit-
     LoginFormComponent,
     SignupFormComponent,
     BookEditFormComponent,
+    CartComponent,
+    CartCardComponent,
   ],
   imports: [
     BrowserModule,

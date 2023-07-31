@@ -176,19 +176,35 @@
       </div>
       <!-- error msg -->
     </div>
+    <div class="form_price">
+      <label for="">Price</label>
+      <input type="number" formControlName="Price" />
+      <!-- error msg -->
+      <div
+        class="error_msg"
+        *ngIf="
+          (bookEditForm.get('Price')?.touched ||
+            bookEditForm.get('Price')?.dirty) &&
+          bookEditForm.get('Price')?.errors
+        "
+      >
+        <div *ngIf="bookEditForm.get('Price')?.hasError('required')">
+          Price is required
+        </div>
+      </div>
+      <!-- error msg -->
+    </div>
     <div class="form_availability">
       <label for="">Available</label>
       <div class="form_radio_container">
         <div>
-          <div>
-            <input
-              type="radio"
-              formControlName="Available"
-              value="1"
-              id="instock"
-            />
-            <label for="instock">In Stock</label>
-          </div>
+          <input
+            type="radio"
+            formControlName="Available"
+            value="1"
+            id="instock"
+          />
+          <label for="instock">In Stock</label>
         </div>
         <div>
           <input
@@ -211,15 +227,8 @@
       <label for="">Status</label>
       <div class="form_radio_container">
         <div>
-          <div>
-            <input
-              type="radio"
-              formControlName="Status"
-              value="1"
-              id="active"
-            />
-            <label for="active">Active</label>
-          </div>
+          <input type="radio" formControlName="Status" value="1" id="active" />
+          <label for="active">Active</label>
         </div>
         <div>
           <input
@@ -232,24 +241,7 @@
         </div>
       </div>
     </div>
-    <div class="form_price">
-      <label for="">Price</label>
-      <input type="number" formControlName="Price" />
-      <!-- error msg -->
-      <div
-        class="error_msg"
-        *ngIf="
-          (bookEditForm.get('Price')?.touched ||
-            bookEditForm.get('Price')?.dirty) &&
-          bookEditForm.get('Price')?.errors
-        "
-      >
-        <div *ngIf="bookEditForm.get('Price')?.hasError('required')">
-          Price is required
-        </div>
-      </div>
-      <!-- error msg -->
-    </div>
+
     <div class="form_upload">
       <label for="">Cover Image</label>
       <input
@@ -273,6 +265,6 @@
       </div>
       <!-- error msg -->
     </div>
-    <button type="submit">CREATE</button>
+    <button type="submit">UPDATE</button>
   </div>
 </form>

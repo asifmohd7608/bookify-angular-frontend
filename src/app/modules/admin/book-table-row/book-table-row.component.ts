@@ -29,6 +29,7 @@ export class BookTableRowComponent {
 
   changeStatus(id: number) {
     this.bookApi.changeBookStatus(id).subscribe((res) => {
+      console.log(res);
       if (res.success) {
         this.book.Status = res.data.status;
       }
