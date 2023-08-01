@@ -1,0 +1,24 @@
+.popup_msg {
+  position: fixed;
+  top: 7rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.4rem 0.8rem;
+  border: 2px solid green;
+  border-radius: 0.5rem;
+  animation: popup 3s ease-in-out;
+}
+@keyframes popup {
+  0% {
+    top: 0;
+  }
+  20% {
+    top: 7rem;
+  }
+  80% {
+    top: 7rem;
+  }
+  100% {
+    top: 0;
+  }
+}

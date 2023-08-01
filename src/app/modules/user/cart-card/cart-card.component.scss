@@ -25,3 +25,17 @@
   //     }
   //   }
 }
+
+.cart_item_delete_btn {
+  width: fit-content;
+  border: 2px solid rgb(231, 120, 120);
+  border-radius: 0.5rem;
+  margin-inline: auto;
+  padding: 0.3rem 0.6rem;
+  color: white;
+  background-color: rgb(192, 20, 20);
+  &:hover {
+    background-color: rgb(168, 18, 18);
+    outline: 1px solid rgb(231, 120, 120);
+  }
+}

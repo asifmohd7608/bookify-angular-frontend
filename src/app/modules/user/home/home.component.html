@@ -1,4 +1,9 @@
+<div class="popup_msg" *ngIf="popup">{{ popup }}</div>
 <h2>Books</h2>
 <div class="books_container">
-  <app-book-card *ngFor="let book of books" [book]="book"></app-book-card>
+  <app-book-card
+    *ngFor="let book of books"
+    [book]="book"
+    (addedToCartEmitter)="displayPopup($event)"
+  ></app-book-card>
 </div>

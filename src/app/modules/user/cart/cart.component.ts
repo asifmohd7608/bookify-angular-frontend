@@ -29,8 +29,9 @@ export class CartComponent implements OnInit {
   }
   deleteCart() {
     this.bookApi.deleteCart().subscribe((res) => {
+      console.log(res);
       if (res.success) {
-        this.cart = res.cart;
+        this.cart = [];
       }
     });
   }

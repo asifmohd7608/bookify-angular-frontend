@@ -17,3 +17,33 @@
   border-radius: 0.5rem;
   padding: 1rem 0rem;
 }
+.cart_delete_btn {
+  width: fit-content;
+  border: 2px solid rgb(231, 120, 120);
+  border-radius: 0.5rem;
+  margin-inline: auto;
+  padding: 0.3rem 0.6rem;
+  color: white;
+  background-color: rgb(192, 20, 20);
+  &:hover {
+    background-color: rgb(168, 18, 18);
+    outline: 1px solid rgb(231, 120, 120);
+  }
+}
+.cart_empty_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+  font-size: 2rem;
+  color: rgb(94, 94, 94);
+  > .cart_empty_add_link {
+    color: rgb(54, 53, 53);
+    &:hover {
+      text-decoration: 4px underline black;
+      text-underline-offset: 10px;
+      cursor: pointer;
+    }
+  }
+}

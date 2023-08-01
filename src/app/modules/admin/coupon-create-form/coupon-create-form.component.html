@@ -1,0 +1,223 @@
+<form
+  class="coupon_create_form"
+  [formGroup]="couponCreateForm"
+  (ngSubmit)="CouponSubmit()"
+>
+  <div>
+    <label for="couponName">Coupon Name</label>
+    <input type="text" id="couponName" formControlName="Name" />
+    <!-- ----------------------error msg--------------- -->
+    <div
+      class="error_msg"
+      *ngIf="
+        (couponCreateForm.get('Name')?.touched ||
+          couponCreateForm.get('Name')?.dirty) &&
+        couponCreateForm.get('Name')?.errors
+      "
+    >
+      <div *ngIf="couponCreateForm.get('Name')?.hasError('required')">
+        Name is required
+      </div>
+    </div>
+    <!-- -------------------------error msg----------------------- -->
+  </div>
+  <div>
+    <label for="">Coupon Code</label>
+    <input type="text" formControlName="Code" />
+    <!-- ----------------------error msg--------------- -->
+    <div
+      class="error_msg"
+      *ngIf="
+        (couponCreateForm.get('Code')?.touched ||
+          couponCreateForm.get('Code')?.dirty) &&
+        couponCreateForm.get('Code')?.errors
+      "
+    >
+      <div *ngIf="couponCreateForm.get('Code')?.hasError('required')">
+        Code is required
+      </div>
+    </div>
+    <!-- ----------------------error msg--------------- -->
+  </div>
+  <div>
+    <label for="">Discount</label>
+    <input type="text" formControlName="Coupon_Offer" />
+    <!-- ----------------------error msg--------------- -->
+    <div
+      class="error_msg"
+      *ngIf="
+        (couponCreateForm.get('Coupon_Offer')?.touched ||
+          couponCreateForm.get('Coupon_Offer')?.dirty) &&
+        couponCreateForm.get('Coupon_Offer')?.errors
+      "
+    >
+      <div *ngIf="couponCreateForm.get('Coupon_Offer')?.hasError('required')">
+        Discount Value is required
+      </div>
+    </div>
+    <!-- ----------------------error msg--------------- -->
+  </div>
+  <div>
+    <label for="Coupon_Type">Coupon Type</label>
+    <div class="radio_div">
+      <div>
+        <input
+          type="radio"
+          value="Fixed"
+          formControlName="Coupon_Type"
+          id="Coupon_Type_fixed"
+        />
+        <label for="Coupon_Type_fixed">Fixed</label>
+      </div>
+
+      <div>
+        <input
+          type="radio"
+          value="Percentage"
+          formControlName="Coupon_Type"
+          id="Coupon_Type_percentage"
+        />
+        <label for="Coupon_Type_percentage">Percentage</label>
+      </div>
+    </div>
+    <!-- ----------------------error msg--------------- -->
+    <div
+      class="error_msg"
+      *ngIf="
+        (couponCreateForm.get('Coupon_Type')?.touched ||
+          couponCreateForm.get('Coupon_Type')?.dirty) &&
+        couponCreateForm.get('Coupon_Type')?.errors
+      "
+    >
+      <div *ngIf="couponCreateForm.get('Coupon_Type')?.hasError('required')">
+        Coupon Type is required
+      </div>
+    </div>
+    <!-- ----------------------error msg--------------- -->
+  </div>
+  <div>
+    <label for="Validity_Start">Validity Start</label>
+    <input type="date" formControlName="Validity_Start" id="Validity_Start" />
+    <!-- ----------------------error msg--------------- -->
+    <div
+      class="error_msg"
+      *ngIf="
+        (couponCreateForm.get('Validity_Start')?.touched ||
+          couponCreateForm.get('Validity_Start')?.dirty) &&
+        couponCreateForm.get('Validity_Start')?.errors
+      "
+    >
+      <div *ngIf="couponCreateForm.get('Validity_Start')?.hasError('required')">
+        Validity Start is required
+      </div>
+    </div>
+    <!-- ----------------------error msg--------------- -->
+  </div>
+  <div>
+    <label for="Validity_End">Validity End</label>
+    <input type="date" formControlName="Validity_End" id="Validity_End" />
+    <!-- ----------------------error msg--------------- -->
+    <div
+      class="error_msg"
+      *ngIf="
+        (couponCreateForm.get('Validity_End')?.touched ||
+          couponCreateForm.get('Validity_End')?.dirty) &&
+        couponCreateForm.get('Validity_End')?.errors
+      "
+    >
+      <div *ngIf="couponCreateForm.get('Validity_End')?.hasError('required')">
+        Validity End is required
+      </div>
+    </div>
+    <!-- ----------------------error msg--------------- -->
+  </div>
+  <div>
+    <label for="Coupon_Status">Coupon Status</label>
+    <div class="radio_div">
+      <div>
+        <input
+          type="radio"
+          value="1"
+          formControlName="Coupon_Status"
+          id="Coupon_Status_active"
+        />
+        <label for="Coupon_Status_active">Active</label>
+      </div>
+
+      <div>
+        <input
+          type="radio"
+          value="0"
+          formControlName="Coupon_Status"
+          id="Coupon_Status_inactive"
+        />
+        <label for="Coupon_Status_inactive">Inactive</label>
+      </div>
+    </div>
+    <!-- ----------------------error msg--------------- -->
+    <div
+      class="error_msg"
+      *ngIf="
+        (couponCreateForm.get('Coupon_Status')?.touched ||
+          couponCreateForm.get('Coupon_Status')?.dirty) &&
+        couponCreateForm.get('Coupon_Status')?.errors
+      "
+    >
+      <div *ngIf="couponCreateForm.get('Coupon_Status')?.hasError('required')">
+        Status is required
+      </div>
+    </div>
+    <!-- ----------------------error msg--------------- -->
+  </div>
+  <div>
+    <label for="Coupon_Status">Coupon Category</label>
+    <select
+      name="Coupon_Category"
+      id="Coupon_Category"
+      formControlName="Coupon_Category"
+    >
+      <option *ngFor="let category of categories" value="{{ category }}">
+        {{ category }}
+      </option>
+    </select>
+    <!-- ----------------------error msg--------------- -->
+    <div
+      class="error_msg"
+      *ngIf="
+        (couponCreateForm.get('Coupon_Category')?.touched ||
+          couponCreateForm.get('Coupon_Category')?.dirty) &&
+        couponCreateForm.get('Coupon_Category')?.errors
+      "
+    >
+      <div
+        *ngIf="couponCreateForm.get('Coupon_Category')?.hasError('required')"
+      >
+        Coupon Category is required
+      </div>
+    </div>
+    <!-- ----------------------error msg--------------- -->
+  </div>
+  <div>
+    <label for="">Coupon Image</label>
+    <input
+      type="file"
+      formControlName="ImageFile"
+      (change)="onImageChange($event)"
+    />
+    <!-- ----------------------error msg--------------- -->
+    <div
+      class="error_msg"
+      *ngIf="
+        (couponCreateForm.get('ImageFile')?.touched ||
+          couponCreateForm.get('ImageFile')?.dirty) &&
+        couponCreateForm.get('ImageFile')?.errors
+      "
+    >
+      <div *ngIf="couponCreateForm.get('ImageFile')?.hasError('required')">
+        Image is required
+      </div>
+    </div>
+    <!-- ----------------------error msg--------------- -->
+  </div>
+  <button class="create_btn" type="submit">CREATE</button>
+</form>

@@ -17,6 +17,7 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { BookEditFormComponent } from './modules/admin/book-edit-form/book-edit-form.component';
 import { CartComponent } from './modules/user/cart/cart.component';
 import { CartCardComponent } from './modules/user/cart-card/cart-card.component';
+import { CouponCreateFormComponent } from './modules/admin/coupon-create-form/coupon-create-form.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CartCardComponent } from './modules/user/cart-card/cart-card.component'
     BookEditFormComponent,
     CartComponent,
     CartCardComponent,
+    CouponCreateFormComponent,
   ],
   imports: [
     BrowserModule,

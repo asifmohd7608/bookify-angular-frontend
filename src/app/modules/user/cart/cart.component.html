@@ -1,5 +1,5 @@
 <h2>Cart</h2>
-<div *ngIf="cart" class="admin_book_container">
+<div *ngIf="cart.length" class="admin_book_container">
   <div class="labels">
     <p>Name</p>
     <p>Unit Price</p>
@@ -13,5 +13,9 @@
     [cart]="cart"
     (remove)="removeFromCart($event)"
   ></app-cart-card>
+  <button class="cart_delete_btn" (click)="deleteCart()">Delete Cart</button>
 </div>
-<button (click)="deleteCart()">Delete Cart</button>
+<div class="cart_empty_div" *ngIf="!cart.length">
+  <h2>Your cart is empty</h2>
+  <h2 class="cart_empty_add_link" routerLink="/user">add books</h2>
+</div>

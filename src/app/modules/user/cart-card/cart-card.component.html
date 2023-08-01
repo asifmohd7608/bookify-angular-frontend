@@ -3,5 +3,11 @@
   <p>{{ cartItem.Unit_Price }}</p>
   <p>{{ cartItem.Quantity }}</p>
   <p>{{ cartItem.Total_Price }}</p>
-  <button (click)="removeFromCart(cartItem.Book_Id)">Remove</button>
+
+  <button
+    class="cart_item_delete_btn"
+    (click)="removeFromCart(cartItem.Book_Id)"
+  >
+    Remove
+  </button>
 </div>

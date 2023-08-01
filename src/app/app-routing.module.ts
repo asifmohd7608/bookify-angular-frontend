@@ -9,6 +9,7 @@ import { adminGuard, isLoggedIn, userGuard } from './core/guards/route.guard';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { BookEditFormComponent } from './modules/admin/book-edit-form/book-edit-form.component';
 import { CartComponent } from './modules/user/cart/cart.component';
+import { CouponCreateFormComponent } from './modules/admin/coupon-create-form/coupon-create-form.component';
 
 const routes: Routes = [
   { path: '', component: LoginFormComponent, canActivate: [isLoggedIn] },
@@ -22,6 +23,7 @@ const routes: Routes = [
         component: BookCreateFormComponent,
       },
       { path: 'book/edit/:id', component: BookEditFormComponent },
+      { path: 'coupons/create', component: CouponCreateFormComponent },
     ],
     canActivate: [adminGuard],
   },
