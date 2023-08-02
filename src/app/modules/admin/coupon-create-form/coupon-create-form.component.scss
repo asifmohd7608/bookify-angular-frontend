@@ -1,7 +1,20 @@
-.coupon_create_form {
+.coupon_create_form{
+  max-width: fit-content;
+  margin-inline: auto;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 30px 5px rgb(199, 199, 245);
+  padding: 3rem;
+  h2{
+    max-width: fit-content;
+    margin-inline: auto;
+  }
+.form_container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-top: 3rem;
   gap: 1rem;
+  
   > div {
     display: flex;
     flex-direction: column;
@@ -26,6 +39,7 @@
   .create_btn {
     grid-column: 1 / span 3;
     padding: 0.4rem 0.8rem;
+    margin-top: 1.5rem;
     margin-inline: auto;
     background-color: rgb(25, 85, 175);
     color: white;
@@ -44,3 +58,14 @@
     letter-spacing: 0.5px;
   }
 }
+}
+@media(width < 880px){
+  .coupon_create_form {
+  .form_container{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    .create_btn {
+        grid-column: 1 / span 1;
+    }
+  }
+}}

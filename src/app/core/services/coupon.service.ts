@@ -10,9 +10,19 @@ export class CouponService {
   url: string = 'http://localhost:8080/api';
 
   createCoupon(data: FormData) {
-    return this.http.post(`${this.url}/coupons/create`, data);
+    return this.http.post<any>(`${this.url}/coupons/create`, data);
   }
-  fetchCoupons() {
+  fetchCouponCategories() {
     return this.http.get<any>(`${this.url}/coupons/categories`);
   }
+  fetchCoupons(){
+    return this.http.get<any>(`${this.url}/coupons`)
+  }
+  fetchCouponById(id:any){
+    return this.http.get<any>(`${this.url}/coupons/edit/${id}`)
+  }
+  updateCoupon(id:string|null,data: FormData) {
+    return this.http.post<any>(`${this.url}/coupons/update/${id}`, data);
+  }
+
 }

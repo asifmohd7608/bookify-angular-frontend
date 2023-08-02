@@ -43,7 +43,6 @@ export class BookEditFormComponent implements OnInit {
     this.http.getBookById(this.id).subscribe(
       (res) => {
         if (res.success) {
-          console.log(res.data);
           Object.keys(this.bookEditForm.value).forEach((key) => {
             if (key === 'Available' || key === 'Status') {
               this.bookEditForm.get(key)?.setValue(res.data[key].toString());
@@ -130,7 +129,6 @@ export class BookEditFormComponent implements OnInit {
       this.http.editBook(formData, this.id).subscribe(
         (res: any) => {
           if (!res.success) {
-            console.log(res);
           } else {
             this.router.navigate(['admin']);
           }
@@ -139,6 +137,5 @@ export class BookEditFormComponent implements OnInit {
           console.log(err);
         }
       );
-    console.log(this.bookEditForm);
   }
 }

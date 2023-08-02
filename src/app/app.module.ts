@@ -18,6 +18,9 @@ import { BookEditFormComponent } from './modules/admin/book-edit-form/book-edit-
 import { CartComponent } from './modules/user/cart/cart.component';
 import { CartCardComponent } from './modules/user/cart-card/cart-card.component';
 import { CouponCreateFormComponent } from './modules/admin/coupon-create-form/coupon-create-form.component';
+import { CouponComponent } from './modules/admin/coupon/coupon.component';
+import { CouponCardComponent } from './modules/admin/coupon-card/coupon-card.component';
+import { CouponEditComponent } from './modules/admin/coupon-edit/coupon-edit.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { CouponCreateFormComponent } from './modules/admin/coupon-create-form/co
     CartComponent,
     CartCardComponent,
     CouponCreateFormComponent,
+    CouponComponent,
+    CouponCardComponent,
+    CouponEditComponent,
   ],
   imports: [
     BrowserModule,

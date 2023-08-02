@@ -25,12 +25,12 @@
       cursor: pointer;
     }
   }
-  .navbar_right {
-    display: flex;
-    gap: 1rem;
-  }
   .navbar_left {
     display: flex;
+    align-items: center;
     gap: 2rem;
+  }
+  .navbar_right {
+    @extend .navbar_left
   }
 }

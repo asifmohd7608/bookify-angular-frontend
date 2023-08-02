@@ -1,6 +1,8 @@
 <div class="navbar">
   <div class="navbar_left">
     <h2>Bookify</h2>
+    <a *ngIf="role === 'admin'" routerLink="/admin">Books</a>
+    <a *ngIf="role === 'admin'" routerLink="/admin/coupons">Coupons</a>
   </div>
   <div class="navbar_right">
     <a *ngIf="role === 'admin'" routerLink="/admin/create">Create Book</a>

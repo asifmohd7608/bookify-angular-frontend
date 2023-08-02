@@ -10,6 +10,8 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 import { BookEditFormComponent } from './modules/admin/book-edit-form/book-edit-form.component';
 import { CartComponent } from './modules/user/cart/cart.component';
 import { CouponCreateFormComponent } from './modules/admin/coupon-create-form/coupon-create-form.component';
+import { CouponComponent } from './modules/admin/coupon/coupon.component';
+import { CouponEditComponent } from './modules/admin/coupon-edit/coupon-edit.component';
 
 const routes: Routes = [
   { path: '', component: LoginFormComponent, canActivate: [isLoggedIn] },
@@ -23,7 +25,11 @@ const routes: Routes = [
         component: BookCreateFormComponent,
       },
       { path: 'book/edit/:id', component: BookEditFormComponent },
-      { path: 'coupons/create', component: CouponCreateFormComponent },
+      { path: 'coupons',children:[
+        {path:'',component: CouponComponent},
+        { path: 'create', component: CouponCreateFormComponent },
+        { path: 'edit/:id', component: CouponEditComponent },
+      ]  }
     ],
     canActivate: [adminGuard],
   },

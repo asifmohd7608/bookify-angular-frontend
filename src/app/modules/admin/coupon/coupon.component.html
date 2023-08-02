@@ -1,0 +1,20 @@
+<h2>Coupons</h2>
+<div class="admin_book_container" *ngIf="coupons">
+  <div class="labels">
+    <p>Cover</p>
+    <p>Name</p>
+    <p>Code</p>
+    <p>Discount</p>
+    <p>Coupon Type</p>
+    <p>Validity Start</p>
+    <p>Validity End</p>
+    <p>Category</p>
+    <p>Coupon Status</p>
+    <p>Change Status</p>
+    <p>Edit</p>
+  </div>
+  <app-coupon-card
+    *ngFor="let coupon of coupons"
+    [Coupon]="coupon"
+  ></app-coupon-card>
+</div>

@@ -1,0 +1,26 @@
+<div class="coupon">
+  <div class="img_container">
+    <img
+      src="http://localhost:8080/{{ Coupon.Image_Path }}"
+      class="book_cover"
+      alt="coupon cover"
+    />
+  </div>
+
+  <p>{{ Coupon.Name | titlecase }}</p>
+  <p>{{ Coupon.Code | titlecase }}</p>
+  <p>{{ Coupon.Coupon_Offer }}</p>
+  <p>{{ Coupon.Coupon_Type | titlecase }}</p>
+  <p>{{ Coupon.Validity_Start }}</p>
+  <p>{{ Coupon.Validity_End }}</p>
+  <p>{{ Coupon.Coupon_Category || "all" | titlecase }}</p>
+  <p *ngIf="Coupon.Coupon_Status">Active</p>
+  <p *ngIf="!Coupon.Coupon_Status">Inactive</p>
+  <button
+    (click)="changeStatus(Coupon.id)"
+    [ngClass]="Coupon.Coupon_Status == 0 ? 'inactive_btn' : 'active_btn'"
+  >
+    {{ Coupon.Coupon_Status === 0 ? "Activate" : "Deactivate" }}
+  </button>
+  <button class="edit_btn" (click)="loadEditForm(Coupon.id)">Edit</button>
+</div>
