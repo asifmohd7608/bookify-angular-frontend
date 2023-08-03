@@ -5,22 +5,18 @@ import { Coupon } from 'src/app/shared/interfaces/coupon';
 @Component({
   selector: 'app-coupon',
   templateUrl: './coupon.component.html',
-  styleUrls: ['./coupon.component.scss']
+  styleUrls: ['./coupon.component.scss'],
 })
 export class CouponComponent implements OnInit {
+  constructor(public couponApi: CouponService) {}
 
+  coupons: Coupon[] = [];
 
-constructor(public couponApi:CouponService){}
-
-coupons:Coupon[]=[]
-
-ngOnInit(): void {
-  this.couponApi.fetchCoupons().subscribe(res=>{
-    if(res.success){
-      console.log(res.data)
-      this.coupons=res.data
-    }
-  })
-}
-
+  ngOnInit(): void {
+    this.couponApi.fetchCoupons().subscribe((res) => {
+      if (res.success) {
+        this.coupons = res.data;
+      }
+    });
+  }
 }

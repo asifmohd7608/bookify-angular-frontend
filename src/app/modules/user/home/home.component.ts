@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   popup = '';
 
   ngOnInit(): void {
-    this.bookApi.getBooks().subscribe(
+    this.bookApi.getBooksUser().subscribe(
       (res) => {
         if (res.success) {
           this.books = res.data;

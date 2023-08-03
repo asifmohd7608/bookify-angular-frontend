@@ -1,8 +1,21 @@
+<div class="popup_msg" *ngIf="popup">{{ popup }}</div>
 <div class="cart_item">
-  <p>{{ cartItem.Book_Title }}</p>
+  <p>{{ cartItem.Book_Title | titlecase }}</p>
   <p>{{ cartItem.Unit_Price }}</p>
-  <p>{{ cartItem.Quantity }}</p>
+  <div class="quantity_div">
+    <button (click)="decrementQuantity(cartItem.id)">-</button>
+    <p>{{ cartItem.Quantity }}</p>
+    <button (click)="incrementQuantity(cartItem.id)">+</button>
+  </div>
   <p>{{ cartItem.Total_Price }}</p>
+  <button
+    class="coupon_apply_btn"
+    (click)="applyClick(cartItem.Book_Id, cartItem.id)"
+  >
+    Apply Coupon
+  </button>
+  <p>{{ cartItem.Discount }}</p>
+  <p>{{ cartItem.Amount_Payable }}</p>
 
   <button
     class="cart_item_delete_btn"

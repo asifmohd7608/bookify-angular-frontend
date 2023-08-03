@@ -21,6 +21,7 @@ import { CouponCreateFormComponent } from './modules/admin/coupon-create-form/co
 import { CouponComponent } from './modules/admin/coupon/coupon.component';
 import { CouponCardComponent } from './modules/admin/coupon-card/coupon-card.component';
 import { CouponEditComponent } from './modules/admin/coupon-edit/coupon-edit.component';
+import { PopupMessageComponent } from './shared/components/popup-message/popup-message.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { CouponEditComponent } from './modules/admin/coupon-edit/coupon-edit.com
     CouponComponent,
     CouponCardComponent,
     CouponEditComponent,
+    PopupMessageComponent,
   ],
   imports: [
     BrowserModule,

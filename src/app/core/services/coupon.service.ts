@@ -15,14 +15,19 @@ export class CouponService {
   fetchCouponCategories() {
     return this.http.get<any>(`${this.url}/coupons/categories`);
   }
-  fetchCoupons(){
-    return this.http.get<any>(`${this.url}/coupons`)
+  fetchCoupons() {
+    return this.http.get<any>(`${this.url}/coupons`);
   }
-  fetchCouponById(id:any){
-    return this.http.get<any>(`${this.url}/coupons/edit/${id}`)
+  fetchEligibleCoupons(id: number) {
+    return this.http.post<any>(`${this.url}/coupons/eligible`, { id });
   }
-  updateCoupon(id:string|null,data: FormData) {
+  fetchCouponById(id: any) {
+    return this.http.get<any>(`${this.url}/coupons/edit/${id}`);
+  }
+  updateCoupon(id: string | null, data: FormData) {
     return this.http.post<any>(`${this.url}/coupons/update/${id}`, data);
   }
-
+  changeCouponStatus(id: number) {
+    return this.http.post<any>(`${this.url}/coupons/changestatus`, { id });
+  }
 }

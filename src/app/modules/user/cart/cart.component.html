@@ -1,3 +1,7 @@
+<app-popup-message
+  *ngIf="popupMessage.message.length > 1"
+  [message]="popupMessage"
+></app-popup-message>
 <h2>Cart</h2>
 <div *ngIf="cart.length" class="admin_book_container">
   <div class="labels">
@@ -5,6 +9,9 @@
     <p>Unit Price</p>
     <p>Quantity</p>
     <p>Total Price</p>
+    <p>Apply Coupon</p>
+    <p>Discount</p>
+    <p>Amount Payable</p>
     <p>Delete</p>
   </div>
   <app-cart-card
@@ -12,9 +19,52 @@
     [cartItem]="cartItem"
     [cart]="cart"
     (remove)="removeFromCart($event)"
+    (applyCouponClick)="applyBtnEvent($event)"
   ></app-cart-card>
-  <button class="cart_delete_btn" (click)="deleteCart()">Delete Cart</button>
+  <div class="cart_action_buttons">
+    <button class="cart_delete_btn" (click)="deleteCart()">Delete Cart</button>
+    <button class="cart_checkout_btn" (click)="checkoutCart()">
+      Checkout Cart
+    </button>
+  </div>
+
+  <!-- -----------------coupon modal------------------ -->
+
+  <div *ngIf="isModalOpen" class="coupon_popup">
+    <h4 class="coupon_apply_form_header">Apply Coupon for</h4>
+    <div class="coupon_apply_form_container">
+      <form
+        class="coupon_apply_form"
+        [formGroup]="couponForm"
+        (ngsubmit)="applyCoupon()"
+      >
+        <label for="coupon">select Coupon</label>
+        <div class="coupon_apply_options_wrapper">
+          <select name="Coupon" class="coupon_select" formControlName="coupon">
+            <option
+              *ngFor="let coupon of eligibleCoupons"
+              value="{{ coupon.id }}"
+            >
+              {{ coupon.Code }}
+            </option>
+          </select>
+          <button
+            [disabled]="!couponForm.valid"
+            type="submit"
+            (click)="applyCoupon()"
+          >
+            Apply
+          </button>
+        </div>
+      </form>
+      <button (click)="removeCoupon()" id="coupon_remove_btn">Remove</button>
+      <button (click)="closeModal()" id="coupon_remove_btn">Close</button>
+    </div>
+  </div>
 </div>
+
+<!-- ----------------------------cart empty message------------------ -->
+
 <div class="cart_empty_div" *ngIf="!cart.length">
   <h2>Your cart is empty</h2>
   <h2 class="cart_empty_add_link" routerLink="/user">add books</h2>

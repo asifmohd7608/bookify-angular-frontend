@@ -10,6 +10,9 @@ export class BookApiService {
   getBooks() {
     return this.http.get<any>(`${this.url}/books`);
   }
+  getBooksUser() {
+    return this.http.get<any>(`${this.url}/user/books`);
+  }
   getCategories() {
     return this.http.get<any>(`${this.url}/books/categories`);
   }

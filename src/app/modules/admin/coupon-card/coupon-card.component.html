@@ -18,7 +18,7 @@
   <p *ngIf="!Coupon.Coupon_Status">Inactive</p>
   <button
     (click)="changeStatus(Coupon.id)"
-    [ngClass]="Coupon.Coupon_Status == 0 ? 'inactive_btn' : 'active_btn'"
+    [ngClass]="Coupon.Coupon_Status === 0 ? 'inactive_btn' : 'active_btn'"
   >
     {{ Coupon.Coupon_Status === 0 ? "Activate" : "Deactivate" }}
   </button>
