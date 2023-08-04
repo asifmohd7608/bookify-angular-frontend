@@ -97,5 +97,11 @@ export class CartComponent implements OnInit {
   closeModal() {
     this.isModalOpen = false;
   }
-  checkoutCart() {}
+  checkoutCart() {
+    this.cartApi.checkoutCart().subscribe((res) => {
+      if (res.success) {
+        this.router.navigate(['/user', 'myorders']);
+      }
+    });
+  }
 }

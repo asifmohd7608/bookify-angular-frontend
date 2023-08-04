@@ -29,4 +29,7 @@ export class CartService {
       cartId,
     });
   }
+  checkoutCart() {
+    return this.http.get<any>(`${this.url}/user/cart/checkout`);
+  }
 }

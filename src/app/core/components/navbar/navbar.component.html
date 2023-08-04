@@ -10,6 +10,7 @@
       >Create Coupon</a
     >
     <a *ngIf="role === 'user'" routerLink="/user/cart">Cart</a>
+    <a *ngIf="role === 'user'" routerLink="/user/myorders">My orders</a>
     <span class="nav_link" *ngIf="token" (click)="logout()">Logout</span>
   </div>
 </div>

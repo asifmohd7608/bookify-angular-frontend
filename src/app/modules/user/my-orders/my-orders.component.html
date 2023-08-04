@@ -1,0 +1,27 @@
+<div *ngIf="orders.length > 0">
+  <h2>Orders</h2>
+  <table class="orders_table">
+    <tr>
+      <!-- <th>Sl.No</th> -->
+      <th>Book Name</th>
+      <th>Unit Price</th>
+      <th>Quantity</th>
+      <th>Total Price</th>
+      <th>Coupon Applied</th>
+      <th>Discount</th>
+      <th>Amount Paid</th>
+      <!-- <th>order Date</th> -->
+    </tr>
+    <tr *ngFor="let order of orders">
+      <!-- <td>1</td> -->
+      <td>{{ order.Book_Title }}</td>
+      <td>{{ order.Unit_Price }}</td>
+      <td>{{ order.Quantity }}</td>
+      <td>{{ order.Total_Price }}</td>
+      <td>{{ order.Coupon_Name || "Nill" }}</td>
+      <td>{{ order.Discount }}</td>
+      <td>{{ order.Amount_Paid }}</td>
+      <!-- <td>{{ order.created_at | date }}</td> -->
+    </tr>
+  </table>
+</div>

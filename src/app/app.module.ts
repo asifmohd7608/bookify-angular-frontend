@@ -22,6 +22,7 @@ import { CouponComponent } from './modules/admin/coupon/coupon.component';
 import { CouponCardComponent } from './modules/admin/coupon-card/coupon-card.component';
 import { CouponEditComponent } from './modules/admin/coupon-edit/coupon-edit.component';
 import { PopupMessageComponent } from './shared/components/popup-message/popup-message.component';
+import { MyOrdersComponent } from './modules/user/my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PopupMessageComponent } from './shared/components/popup-message/popup-m
     CouponCardComponent,
     CouponEditComponent,
     PopupMessageComponent,
+    MyOrdersComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+.orders_table {
+  max-width: fit-content;
+  margin: 3rem auto;
+  border: 2px solid rgb(116, 116, 116);
+  border-radius: 0.5rem;
+  border-spacing: 30px;
+
+  padding: 1rem 2rem;
+  text-align: center;
+  td,
+  th {
+    padding: 0.5rem;
+  }
+}

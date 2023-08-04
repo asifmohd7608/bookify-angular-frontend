@@ -12,6 +12,7 @@ import { CartComponent } from './modules/user/cart/cart.component';
 import { CouponCreateFormComponent } from './modules/admin/coupon-create-form/coupon-create-form.component';
 import { CouponComponent } from './modules/admin/coupon/coupon.component';
 import { CouponEditComponent } from './modules/admin/coupon-edit/coupon-edit.component';
+import { MyOrdersComponent } from './modules/user/my-orders/my-orders.component';
 
 const routes: Routes = [
   { path: '', component: LoginFormComponent, canActivate: [isLoggedIn] },
@@ -25,11 +26,14 @@ const routes: Routes = [
         component: BookCreateFormComponent,
       },
       { path: 'book/edit/:id', component: BookEditFormComponent },
-      { path: 'coupons',children:[
-        {path:'',component: CouponComponent},
-        { path: 'create', component: CouponCreateFormComponent },
-        { path: 'edit/:id', component: CouponEditComponent },
-      ]  }
+      {
+        path: 'coupons',
+        children: [
+          { path: '', component: CouponComponent },
+          { path: 'create', component: CouponCreateFormComponent },
+          { path: 'edit/:id', component: CouponEditComponent },
+        ],
+      },
     ],
     canActivate: [adminGuard],
   },
@@ -38,6 +42,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'myorders', component: MyOrdersComponent },
     ],
     canActivate: [userGuard],
   },
