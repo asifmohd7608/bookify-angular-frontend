@@ -38,3 +38,14 @@ import { AbstractControl } from "@angular/forms";
     }
   };
 
+  export function publicationDate(control:AbstractControl):{[key:string]:any}|null{
+    let publicationDate=control.get('Publication_Year')?.value;
+    console.log(publicationDate)
+    let currentDate=Date.now();
+    if(Date.parse(publicationDate)>currentDate){
+      return {'Publication_Year':true}
+    }else {
+      return null
+    }
+  }
+

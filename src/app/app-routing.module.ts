@@ -16,11 +16,11 @@ import { MyOrdersComponent } from './modules/user/my-orders/my-orders.component'
 
 const routes: Routes = [
   { path: '', component: LoginFormComponent, canActivate: [isLoggedIn] },
-  { path: 'home', component: HomeComponent, canActivate: [userGuard] },
+  // { path: 'home', component: HomeComponent, canActivate: [userGuard] },//user home page
   {
     path: 'admin',
     children: [
-      { path: '', component: AdminHomeComponent },
+      { path: '', component: AdminHomeComponent },//admin home page
       {
         path: 'create',
         component: BookCreateFormComponent,

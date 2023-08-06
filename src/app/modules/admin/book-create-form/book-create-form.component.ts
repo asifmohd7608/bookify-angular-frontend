@@ -7,6 +7,7 @@ import {
   stockValidator,
   availableValidator,
   isbnValidator,
+  publicationDate,
 } from 'src/app/shared/Validators/bookFormValidator';
 
 @Component({
@@ -84,6 +85,7 @@ export class BookCreateFormComponent implements OnInit {
         stockValidator,
         availableValidator,
         isbnValidator,
+        ,publicationDate
       ]),
     }
   );

@@ -12,9 +12,9 @@ export const adminGuard: CanActivateFn = () => {
     switchMap((res) => {
       if (res.success && res.data.Role == 'admin') {
         return of(true);
-      } else {
-        return router.navigate(['/home']);
-      }
+      } else if (res.success && res.data.Role == 'user'){
+        return router.navigate(['/user']);
+      }else{return router.navigate(['/login'])}
     })
   );
 };
@@ -26,9 +26,9 @@ export const userGuard: CanActivateFn = () => {
     switchMap((res) => {
       if (res.success && res.data.Role == 'user') {
         return of(true);
-      } else {
+      } else if (res.success && res.data.Role == 'admin'){
         return router.navigate(['/admin']);
-      }
+      }else{return router.navigate(['/login'])}
     })
   );
 };
@@ -37,7 +37,7 @@ export const isLoggedIn: CanActivateFn = () => {
   let token = localStorage.getItem('Token');
   let router = inject(Router);
   if (token?.length! > 1) {
-    return router.navigate(['/home']);
+    return router.navigate(['/user']);
   } else {
     return true;
   }

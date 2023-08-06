@@ -34,3 +34,12 @@
     @extend .navbar_left
   }
 }
+@media(width<700px){
+.navbar {
+    .navbar_right {
+      display: none;
+    }
+  }
+}
+
+

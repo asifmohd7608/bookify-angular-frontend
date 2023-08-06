@@ -1,18 +1,27 @@
-.book_add_form {
+
+.book_create_form{
+  max-width: 900px;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 30px 5px rgb(199, 199, 245);
+    padding: 3rem;
+h2{
+  max-width: fit-content;
+  margin-inline: auto;
+}
+.form_container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  border: 2px solid rgb(201, 201, 201);
-  border-radius: 0.5rem;
   padding: 2rem 2rem;
   margin: 1rem auto;
   grid-template-areas:
-    "name name author author "
-    "isbn isbn language language  "
-    "categories categories date date "
-    "actual actual current current"
-    " price price  availability availability "
-    "status status upload upload ";
+    "name author "
+    "isbn  language  "
+    "categories date "
+    "actual  current"
+    " price   availability "
+    "status  upload ";
   .form_name {
     grid-area: name;
   }
@@ -74,17 +83,24 @@
   button {
     padding: 0.5rem 0.8rem;
     grid-column: 1 / span 2;
+    background-color: rgb(18, 105, 197);
+    color: white;
+    border-radius: 0.5rem;
+    border: 3px solid rgb(178, 206, 239);
     margin: 0.5rem auto 0 auto;
+    &:hover{
+    outline: 2px solid rgb(178, 206, 239);
+    background-color: rgb(9, 73, 141);
+    }
   }
-  .form_image {
-    max-width: 100px;
-  }
+ 
   input.ng-invalid.ng-dirty {
     border-color: rgb(134, 38, 38);
   }
   input.ng-invalid.ng-touched {
     border-color: rgb(134, 38, 38);
   }
+}
 }
 
 .error_msg {
@@ -93,3 +109,24 @@
   font-size: 0.8rem;
   letter-spacing: 0.5px;
 }
+@media(width < 700px){
+  .book_create_form{
+  .form_container{
+   grid-template-areas: 
+    "name"
+    "author"
+    "isbn"
+    "language"
+    "categories"
+    "date"
+    "actual"
+    "current"
+    "price"
+    "availability"
+    "status" 
+    "upload";
+    button{
+    grid-column: 1 / span 1;
+    }
+  }
+}}
