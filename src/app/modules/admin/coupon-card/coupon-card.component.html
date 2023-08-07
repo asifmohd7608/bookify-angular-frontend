@@ -7,15 +7,31 @@
     />
   </div>
 
-  <p>{{ Coupon.Name | titlecase }}</p>
-  <p>{{ Coupon.Code | titlecase }}</p>
-  <p>{{ Coupon.Coupon_Offer }}</p>
-  <p>{{ Coupon.Coupon_Type | titlecase }}</p>
-  <p>{{ Coupon.Validity_Start }}</p>
-  <p>{{ Coupon.Validity_End }}</p>
-  <p>{{ Coupon.Coupon_Category || "all" | titlecase }}</p>
-  <p *ngIf="Coupon.Coupon_Status">Active</p>
-  <p *ngIf="!Coupon.Coupon_Status">Inactive</p>
+  <p>
+    <span class="individual_label">Name : </span>{{ Coupon.Name | titlecase }}
+  </p>
+  <p>
+    <span class="individual_label">Code : </span>{{ Coupon.Code | titlecase }}
+  </p>
+  <p><span class="individual_label">Offer : </span>{{ Coupon.Coupon_Offer }}</p>
+  <p>
+    <span class="individual_label">Type : </span
+    >{{ Coupon.Coupon_Type | titlecase }}
+  </p>
+  <p>
+    <span class="individual_label">Start : </span>{{ Coupon.Validity_Start }}
+  </p>
+  <p><span class="individual_label">End : </span>{{ Coupon.Validity_End }}</p>
+  <p>
+    <span class="individual_label">Category : </span
+    >{{ Coupon.Coupon_Category || "all" | titlecase }}
+  </p>
+  <p *ngIf="Coupon.Coupon_Status">
+    <span class="individual_label">Status : </span>Active
+  </p>
+  <p *ngIf="!Coupon.Coupon_Status">
+    <span class="individual_label">Status : </span>Inactive
+  </p>
   <button
     (click)="changeStatus(Coupon.id)"
     [ngClass]="Coupon.Coupon_Status === 0 ? 'inactive_btn' : 'active_btn'"

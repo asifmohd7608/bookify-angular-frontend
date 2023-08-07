@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: 'admin',
     children: [
-      { path: '', component: AdminHomeComponent },//admin home page
+      { path: '', component: AdminHomeComponent }, //admin home page
       {
         path: 'create',
         component: BookCreateFormComponent,

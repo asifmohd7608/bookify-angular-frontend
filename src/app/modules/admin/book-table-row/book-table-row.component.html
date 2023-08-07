@@ -7,16 +7,39 @@
     />
   </div>
 
-  <p>{{ book.ISBN }}</p>
-  <p>{{ book.Book_Title | titlecase }}</p>
-  <p>{{ book.Author | titlecase }}</p>
-  <p>{{ book.Publication_Year | date }}</p>
-  <p>{{ book.Language | titlecase }}</p>
-  <p>{{ book.No_Of_Copies_Actual }}</p>
-  <p>{{ book.No_Of_Copies_Current }}</p>
-  <p>{{ book.Available }}</p>
-  <p>{{ book.Price }}</p>
-  <p>{{ book.Category_Type | titlecase }}</p>
+  <p><span class="individual_labels">ISBN : </span>{{ book.ISBN }}</p>
+  <p>
+    <span class="individual_labels">Title : </span
+    >{{ book.Book_Title | titlecase }}
+  </p>
+  <p>
+    <span class="individual_labels">Author : </span
+    >{{ book.Author | titlecase }}
+  </p>
+  <p>
+    <span class="individual_labels">Published on : </span
+    >{{ book.Publication_Year | date }}
+  </p>
+  <p>
+    <span class="individual_labels">Language : </span
+    >{{ book.Language | titlecase }}
+  </p>
+  <p>
+    <span class="individual_labels">Actual stock : </span
+    >{{ book.No_Of_Copies_Actual }}
+  </p>
+  <p>
+    <span class="individual_labels">Available stock : </span
+    >{{ book.No_Of_Copies_Current }}
+  </p>
+  <p>
+    <span class="individual_labels">Availability : </span>{{ book.Available }}
+  </p>
+  <p><span class="individual_labels">Price : </span>{{ book.Price }}</p>
+  <p>
+    <span class="individual_labels">Category : </span
+    >{{ book.Category_Type | titlecase }}
+  </p>
   <p *ngIf="book.Status">Active</p>
   <p *ngIf="!book.Status">Inactive</p>
   <button

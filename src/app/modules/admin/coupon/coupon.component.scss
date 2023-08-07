@@ -1,25 +1,41 @@
 h2 {
-    max-width: fit-content;
-    margin-inline: auto;
+  max-width: fit-content;
+  margin-inline: auto;
 }
 
 .admin_book_container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
 }
 
 .labels {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  align-items: center;
+  position: sticky;
+  top: 65px;
+  background-color: rgb(64, 88, 153);
+  color: white;
+  text-align: center;
+  border: 2px solid rgb(156, 156, 156);
+  border-radius: 0.5rem;
+  padding: 1rem 0rem;
+}
+@media (width<1100px) {
+  .labels {
+    display: none;
+  }
+  .admin_book_container {
     display: grid;
-    grid-template-columns: repeat(11, 1fr);
-    align-items: center;
-    position: sticky;
-    top: 65px;
-    background-color: rgb(64, 88, 153);
-    color: white;
-    text-align: center;
-    border: 2px solid rgb(156, 156, 156);
-    border-radius: 0.5rem;
-    padding: 1rem 0rem;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
+}
+@media (width<800px) {
+  .admin_book_container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }

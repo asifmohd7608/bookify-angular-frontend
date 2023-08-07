@@ -5,7 +5,6 @@
   color: white;
   background-color: rgb(0, 0, 0);
   position: sticky;
-  // width: 100dvw;
   z-index: 10;
   top: 0;
   a {
@@ -31,15 +30,40 @@
     gap: 2rem;
   }
   .navbar_right {
-    @extend .navbar_left
+    @extend .navbar_left;
   }
 }
-@media(width<700px){
-.navbar {
+.hamburger {
+  display: none;
+}
+.dropDownbtn {
+  position: relative;
+}
+.dropDownHide {
+  display: none;
+}
+.dropDownShow {
+  display: none;
+}
+.dropDownMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 0.5rem;
+  top: 40px;
+  left: -15px;
+  text-align: center;
+  gap: 1rem;
+}
+
+@media (width<700px) {
+  .navbar {
+    .hamburger {
+      display: block;
+    }
     .navbar_right {
       display: none;
     }
   }
 }
-
-

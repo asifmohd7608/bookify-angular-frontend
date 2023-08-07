@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="form_header">SIGN UP</h2>
     <div class="signupForm">
-      <div>
+      <div class="firstname">
         <label for="fname">First Name</label>
         <input type="text" id="fname" formControlName="First_Name" />
         <div
@@ -21,8 +21,8 @@
           >
         </div>
       </div>
-      <div>
-        <label for="lname">Last Name</label>
+      <div class="lastname">
+        <label for="lastname">Last Name</label>
         <input type="text" id="lname" formControlName="Last_Name" />
         <div
           class="input_error_msg"
@@ -40,7 +40,7 @@
           >
         </div>
       </div>
-      <div>
+      <div class="email">
         <label for="email">Email</label>
         <input type="email" id="email" formControlName="Email" />
         <div
@@ -59,26 +59,86 @@
           >
         </div>
       </div>
-      <div>
-        <label for="address">Address</label>
-        <input type="text" id="address" formControlName="Address" />
-        <div
-          class="input_error_msg"
-          *ngIf="
-            signupForm.get('Address')?.dirty ||
-            (signupForm.get('Address')?.touched &&
-              signupForm.get('Address')?.invalid)
-          "
-        >
-          <span *ngIf="signupForm.get('Address')?.hasError('required')"
-            >Address cant be blank</span
-          >
-          <span *ngIf="signupForm.get('Address')?.hasError('minlength')"
-            >Address cant be less than 2 characters</span
-          >
+      <div class="address">
+        <div formGroupName="Address" class="address_container">
+          <div>
+            <label for="address">Address line 1</label>
+            <input type="text" id="address" formControlName="AddressLine1" />
+            <div
+              class="input_error_msg"
+              *ngIf="
+                signupForm.get('Address.AddressLine1')?.dirty ||
+                (signupForm.get('Address.AddressLine1')?.touched &&
+                  signupForm.get('Address.AddressLine1')?.invalid)
+              "
+            >
+              <span
+                *ngIf="
+                  signupForm.get('Address.AddressLine1')?.hasError('required')
+                "
+                >Address Line 1 cant be blank</span
+              >
+              <span
+                *ngIf="
+                  signupForm.get('Address.AddressLine1')?.hasError('minlength')
+                "
+                >Address Line 1 cant be less than 2 characters</span
+              >
+            </div>
+          </div>
+          <div>
+            <label>Address line 2</label>
+            <input type="text" id="address" formControlName="AddressLine2" />
+            <div
+              class="input_error_msg"
+              *ngIf="
+                signupForm.get('Address.AddressLine2')?.dirty ||
+                (signupForm.get('Address.AddressLine2')?.touched &&
+                  signupForm.get('Address.AddressLine2')?.invalid)
+              "
+            >
+              <span
+                *ngIf="
+                  signupForm.get('Address.AddressLine2')?.hasError('required')
+                "
+                >Address Line 2 cant be blank</span
+              >
+              <span
+                *ngIf="
+                  signupForm.get('Address.AddressLine2')?.hasError('minlength')
+                "
+                >Address Line 2 cant be less than 2 characters</span
+              >
+            </div>
+          </div>
+          <div>
+            <label>Address line 3</label>
+            <input type="text" id="address" formControlName="AddressLine3" />
+            <div
+              class="input_error_msg"
+              *ngIf="
+                signupForm.get('Address.AddressLine3')?.dirty ||
+                (signupForm.get('Address.AddressLine3')?.touched &&
+                  signupForm.get('Address.AddressLine3')?.invalid)
+              "
+            >
+              <span
+                *ngIf="
+                  signupForm.get('Address.AddressLine3')?.hasError('required')
+                "
+                >Address Line 3 cant be blank</span
+              >
+              <span
+                *ngIf="
+                  signupForm.get('Address.AddressLine3')?.hasError('minlength')
+                "
+                >Address Line 3 cant be less than 2 characters</span
+              >
+            </div>
+          </div>
         </div>
       </div>
-      <div>
+      <div class="city">
         <label for="city">City</label>
         <input type="text" id="city" formControlName="City" />
         <div
@@ -96,7 +156,7 @@
           >
         </div>
       </div>
-      <div>
+      <div class="mobile">
         <label for="mobile">Mobile No</label>
         <input type="text" id="mobile" formControlName="Mobile" />
         <div
@@ -107,18 +167,23 @@
               signupForm.get('Mobile')?.invalid)
           "
         >
-          <span *ngIf="signupForm.get('Mobile')?.hasError('required')"
-            >Mobile number cant be blank</span
-          >
-          <span *ngIf="signupForm.get('Mobile')?.hasError('minlength')"
-            >Mobile number should be 10 digits</span
-          >
-          <span *ngIf="signupForm.get('Mobile')?.hasError('maxlength')"
-            >Mobile number should be 10 digits</span
+          <div *ngIf="!signupForm.errors?.['notValidMobile']">
+            <span *ngIf="signupForm.get('Mobile')?.hasError('required')"
+              >Mobile number cant be blank</span
+            >
+            <span *ngIf="signupForm.get('Mobile')?.hasError('minlength')"
+              >Mobile number should be 10 digits</span
+            >
+            <span *ngIf="signupForm.get('Mobile')?.hasError('maxlength')"
+              >Mobile number should be 10 digits</span
+            >
+          </div>
+          <span *ngIf="signupForm.errors?.['notValidMobile']"
+            >invalid mobile number</span
           >
         </div>
       </div>
-      <div>
+      <div class="password">
         <label for="password">Password</label>
         <input type="password" id="password" formControlName="Password" />
         <div
@@ -133,11 +198,34 @@
             >Password cant be blank</span
           >
           <span *ngIf="signupForm.get('Password')?.hasError('minlength')"
-            >Password cant be atleast 8 characters long</span
+            >Password should be atleast 8 characters long</span
           >
           <span *ngIf="signupForm.get('Password')?.hasError('maxlength')"
             >Password should be 20 characters or less</span
           >
+        </div>
+      </div>
+      <div class="confirm_password">
+        <label for="password">Confirm Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="PasswordConfirm"
+        />
+        <div
+          class="input_error_msg"
+          *ngIf="
+            signupForm.get('PasswordConfirm')?.dirty ||
+            (signupForm.get('PasswordConfirm')?.touched &&
+              signupForm.get('PasswordConfirm')?.invalid)
+          "
+        >
+          <span *ngIf="signupForm.get('PasswordConfirm')?.hasError('required')"
+            >Password cant be blank</span
+          >
+          <div class="error_msg" *ngIf="signupForm.errors?.['passwordNoMatch']">
+            password doesnt match
+          </div>
         </div>
       </div>
     </div>

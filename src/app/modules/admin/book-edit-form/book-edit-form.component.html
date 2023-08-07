@@ -1,5 +1,7 @@
-<form [formGroup]="bookEditForm" (ngSubmit)="onSubmit()">
-  <div class="book_add_form">
+<form [formGroup]="bookEditForm" (ngSubmit)="onSubmit()" class="book_add_form">
+  <h2>Edit Book</h2>
+
+  <div class="form_container">
     <div class="form_isbn">
       <label for="">Isbn</label>
       <input type="number" formControlName="ISBN" />
@@ -106,6 +108,14 @@
         <div *ngIf="bookEditForm.get('Publication_Year')?.hasError('required')">
           publication date is required
         </div>
+      </div>
+      <div
+        class="error_msg"
+        *ngIf="
+          bookEditForm.errors?.['Publication_Year']
+        "
+      >
+        publication date cant be a future date
       </div>
       <!-- error msg -->
     </div>

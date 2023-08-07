@@ -1,6 +1,7 @@
 <div class="navbar">
+  <!-- <div class="hamburger">icon</div> -->
   <div class="navbar_left">
-    <a routerLink="/home"><h2>Bookify</h2></a>
+    <a routerLink="/user/home"><h2>Bookify</h2></a>
     <a *ngIf="role === 'admin'" routerLink="/admin">Books</a>
     <a *ngIf="role === 'admin'" routerLink="/admin/coupons">Coupons</a>
   </div>
@@ -11,6 +12,17 @@
     >
     <a *ngIf="role === 'user'" routerLink="/user/cart">Cart</a>
     <a *ngIf="role === 'user'" routerLink="/user/myorders">My orders</a>
-    <span class="nav_link" *ngIf="token" (click)="logout()">Logout</span>
+    <div (click)="updateDropDown()" class="dropDownbtn">
+      user
+      <div
+        class="dropDownMenu"
+        [ngClass]="isDropDownOpen ? 'dropDownShow' : 'dropDownHide'"
+      >
+        <a routerLink="/user/cart">Cart</a>
+        <a routerLink="/user/myorders">My Orders</a>
+        <a routerLink="/user/home">Books</a>
+        <span class="nav_link" *ngIf="token" (click)="logout()">Logout</span>
+      </div>
+    </div>
   </div>
 </div>

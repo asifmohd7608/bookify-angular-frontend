@@ -5,31 +5,33 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-constructor(public auth:AuthService,public router:Router){}
+  constructor(public auth: AuthService, public router: Router) {}
 
-token:boolean=false;
-role:string|null='';
+  token: boolean = false;
+  role: string | null = '';
+  isDropDownOpen: boolean = false;
 
-ngOnInit(): void {
-// this.token=!!this.auth.getToken(); 
-// this.role=localStorage.getItem('Role');
-this.router.events.subscribe(event => {
-      if (event.constructor.name === "NavigationEnd") {
-       this.token = !!this.auth.getToken();
-       this.role=localStorage.getItem('Role')
+  ngOnInit(): void {
+    // this.token=!!this.auth.getToken();
+    // this.role=localStorage.getItem('Role');
+    this.router.events.subscribe((event) => {
+      if (event.constructor.name === 'NavigationEnd') {
+        this.token = !!this.auth.getToken();
+        this.role = localStorage.getItem('Role');
       }
-    })
+    });
   }
 
-
-logout(){
-  let status=this.auth.logout();
-  if (status){
-    this.router.navigate(['/login']);
+  logout() {
+    let status = this.auth.logout();
+    if (status) {
+      this.router.navigate(['/login']);
+    }
   }
-}
-
+  updateDropDown() {
+    this.isDropDownOpen = !this.isDropDownOpen;
+  }
 }

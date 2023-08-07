@@ -16,9 +16,11 @@
     <p>Change Status</p>
     <p>Edit</p>
   </div>
-  <app-book-table-row
-    *ngFor="let book of books"
-    [book]="book"
-    class="book"
-  ></app-book-table-row>
+  <div class="book_wrapper">
+    <app-book-table-row
+      *ngFor="let book of books"
+      [book]="book"
+      class="book"
+    ></app-book-table-row>
+  </div>
 </div>

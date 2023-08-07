@@ -11,9 +11,38 @@
   }
   .signupForm {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
+    grid-template-areas:
+      " firstname lastname"
+      " address email"
+      " address mobile"
+      " address city"
+      "password passwordConfirm ";
 
+    .firstname {
+      grid-area: firstname;
+    }
+    .lastname {
+      grid-area: lastname;
+    }
+    .email {
+      grid-area: email;
+    }
+    .address {
+      grid-area: address;
+    }
+    .city {
+      grid-area: city;
+    }
+    .password {
+      grid-area: password;
+    }
+    .confirm_password {
+      grid-area: passwordConfirm;
+    }
+    .mobile {
+      grid-area: mobile;
+    }
     > div {
       display: grid;
       gap: 0.3rem;
@@ -39,7 +68,7 @@
   .signup_btn {
     display: block;
     max-width: fit-content;
-    margin: 1.5rem auto 0 auto;
+    margin: 2rem auto 0 auto;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     color: white;
@@ -58,14 +87,38 @@
   top: 3.9rem;
   left: 0.5rem;
 }
-@media (width < 830px) {
-  .container {
-    .signupForm {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-}
 .error_msg {
   color: red;
   font-size: 0.8rem;
+}
+.address_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  > div {
+    display: grid;
+    gap: 0.3rem;
+    position: relative;
+  }
+}
+
+@media (width < 830px) {
+  .container {
+    .signupForm {
+      grid-template-areas:
+        "firstname"
+        "lastname"
+        "email"
+        "address"
+        "city"
+        "mobile"
+        "password"
+        "passwordConfirm";
+      .address_container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+  }
 }

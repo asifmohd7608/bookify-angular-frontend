@@ -7,6 +7,12 @@ h2 {
   flex-direction: column;
   gap: 2rem;
   margin: 2rem 0;
+  .book_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
 }
 .labels {
   display: grid;
@@ -20,4 +26,22 @@ h2 {
   border: 2px solid rgb(156, 156, 156);
   border-radius: 0.5rem;
   padding: 1rem 0rem;
+}
+@media (width<1100px) {
+  .admin_book_container {
+    .book_wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .labels {
+    display: none;
+  }
+}
+@media (width<720px) {
+  .admin_book_container {
+    .book_wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
 }
