@@ -1,0 +1,244 @@
+<!-- <form
+  [formGroup]="profileForm"
+  (ngSubmit)="submitForm()"
+  class="profile_edit_form"
+>
+  <div>
+    <label for="">First Name</label>
+    <input type="text" formControlName="First_Name" />
+  </div>
+  <div>
+    <label for="">Last Name</label>
+    <input type="text" formControlName="Last_Name" />
+  </div>
+  <div>
+    <label for="">Email</label>
+    <input type="email" formControlName="Email" />
+  </div>
+  <div formGroupName="Address" class="address">
+    <div>
+      <label for="">Address line 1</label>
+      <input type="text" formControlName="Address_line1" />
+    </div>
+    <div>
+      <label for="">Address line 2</label>
+      <input type="text" formControlName="Address_line2" />
+    </div>
+    <div>
+      <label for="">Address line 3</label>
+      <input type="text" formControlName="Address_line3" />
+    </div>
+  </div>
+
+  <div>
+    <label for="">City</label>
+    <input type="text" formControlName="City" />
+  </div>
+  <div>
+    <label for="">Mobile</label>
+    <input type="number" formControlName="Mobile" />
+  </div>
+  <button type="submit">Update</button>
+</form> -->
+
+<form [formGroup]="profileForm" (ngSubmit)="submitForm()">
+  <div class="container">
+    <h2>Edit</h2>
+    <div class="signupForm">
+      <div class="firstname">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" formControlName="First_Name" />
+        <div
+          class="input_error_msg"
+          *ngIf="
+            profileForm.get('First_Name')?.dirty ||
+            (profileForm.get('First_Name')?.touched &&
+              profileForm.get('First_Name')?.invalid)
+          "
+        >
+          <span *ngIf="profileForm.get('First_Name')?.hasError('required')"
+            >First name cant be blank</span
+          >
+          <span *ngIf="profileForm.get('First_Name')?.hasError('minlength')"
+            >First name cant be less than 2 characters</span
+          >
+        </div>
+      </div>
+      <div class="lastname">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lname" formControlName="Last_Name" />
+        <div
+          class="input_error_msg"
+          *ngIf="
+            profileForm.get('Last_Name')?.dirty ||
+            (profileForm.get('Last_Name')?.touched &&
+              profileForm.get('Last_Name')?.invalid)
+          "
+        >
+          <span *ngIf="profileForm.get('Last_Name')?.hasError('required')"
+            >Last name cant be blank</span
+          >
+          <span *ngIf="profileForm.get('Last_Name')?.hasError('minlength')"
+            >Last name cant be less than 2 characters</span
+          >
+        </div>
+      </div>
+      <div class="email">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="Email" />
+        <div
+          class="input_error_msg"
+          *ngIf="
+            profileForm.get('Email')?.dirty ||
+            (profileForm.get('Email')?.touched &&
+              profileForm.get('Email')?.invalid)
+          "
+        >
+          <span *ngIf="profileForm.get('Email')?.hasError('required')"
+            >Email cant be blank</span
+          >
+          <span *ngIf="profileForm.get('Email')?.hasError('email')"
+            >invalid email</span
+          >
+        </div>
+      </div>
+      <div class="address">
+        <div formGroupName="Address" class="address_container">
+          <div>
+            <label for="address">Address line 1</label>
+            <input type="text" id="address" formControlName="Address_line1" />
+            <div
+              class="input_error_msg"
+              *ngIf="
+                profileForm.get('Address.Address_line1')?.dirty ||
+                (profileForm.get('Address.Address_line1')?.touched &&
+                  profileForm.get('Address.Address_line1')?.invalid)
+              "
+            >
+              <span
+                *ngIf="
+                  profileForm.get('Address.Address_line1')?.hasError('required')
+                "
+                >Address Line 1 cant be blank</span
+              >
+              <span
+                *ngIf="
+                  profileForm
+                    .get('Address.Address_line1')
+                    ?.hasError('minlength')
+                "
+                >Address Line 1 cant be less than 2 characters</span
+              >
+            </div>
+          </div>
+          <div>
+            <label>Address line 2</label>
+            <input type="text" id="address" formControlName="Address_line2" />
+            <div
+              class="input_error_msg"
+              *ngIf="
+                profileForm.get('Address.Address_line2')?.dirty ||
+                (profileForm.get('Address.Address_line2')?.touched &&
+                  profileForm.get('Address.Address_line2')?.invalid)
+              "
+            >
+              <span
+                *ngIf="
+                  profileForm.get('Address.Address_line2')?.hasError('required')
+                "
+                >Address Line 2 cant be blank</span
+              >
+              <span
+                *ngIf="
+                  profileForm
+                    .get('Address.Address_line2')
+                    ?.hasError('minlength')
+                "
+                >Address Line 2 cant be less than 2 characters</span
+              >
+            </div>
+          </div>
+          <div>
+            <label>Address line 3</label>
+            <input type="text" id="address" formControlName="Address_line3" />
+            <div
+              class="input_error_msg"
+              *ngIf="
+                profileForm.get('Address.Address_line3')?.dirty ||
+                (profileForm.get('Address.Address_line3')?.touched &&
+                  profileForm.get('Address.Address_line3')?.invalid)
+              "
+            >
+              <span
+                *ngIf="
+                  profileForm.get('Address.Address_line3')?.hasError('required')
+                "
+                >Address Line 3 cant be blank</span
+              >
+              <span
+                *ngIf="
+                  profileForm
+                    .get('Address.Address_line3')
+                    ?.hasError('minlength')
+                "
+                >Address Line 3 cant be less than 2 characters</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="city">
+        <label for="city">City</label>
+        <input type="text" id="city" formControlName="City" />
+        <div
+          class="input_error_msg"
+          *ngIf="
+            profileForm.get('City')?.dirty ||
+            (profileForm.get('City')?.touched &&
+              profileForm.get('City')?.invalid)
+          "
+        >
+          <span *ngIf="profileForm.get('City')?.hasError('required')"
+            >City cant be blank</span
+          >
+          <span *ngIf="profileForm.get('City')?.hasError('minlength')"
+            >City cant be less than 2 characters</span
+          >
+        </div>
+      </div>
+      <div class="mobile">
+        <label for="mobile">Mobile No</label>
+        <input type="text" id="mobile" formControlName="Mobile" />
+        <div
+          class="input_error_msg"
+          *ngIf="
+            profileForm.get('Mobile')?.dirty ||
+            (profileForm.get('Mobile')?.touched &&
+              profileForm.get('Mobile')?.invalid)
+          "
+        >
+          <div *ngIf="!profileForm.errors?.['notValidMobile']">
+            <span *ngIf="profileForm.get('Mobile')?.hasError('required')"
+              >Mobile number cant be blank</span
+            >
+            <span *ngIf="profileForm.get('Mobile')?.hasError('minlength')"
+              >Mobile number should be 10 digits</span
+            >
+            <span *ngIf="profileForm.get('Mobile')?.hasError('maxlength')"
+              >Mobile number should be 10 digits</span
+            >
+          </div>
+          <span *ngIf="profileForm.errors?.['notValidMobile']"
+            >invalid mobile number</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="btn_container">
+      <button class="back_btn" type="submit" (click)="emitEditAction()">
+        Back
+      </button>
+      <button class="update_btn" type="submit">Update</button>
+    </div>
+  </div>
+</form>

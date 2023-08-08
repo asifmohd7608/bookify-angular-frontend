@@ -1,21 +1,44 @@
 <div class="popup_msg" *ngIf="popup">{{ popup }}</div>
 <div class="cart_item">
-  <p>{{ cartItem.Book_Title | titlecase }}</p>
-  <p>{{ cartItem.Unit_Price }}</p>
-  <div class="quantity_div">
-    <button (click)="decrementQuantity(cartItem.id)">-</button>
-    <p>{{ cartItem.Quantity }}</p>
-    <button (click)="incrementQuantity(cartItem.id)">+</button>
+  <div class="title">
+    <p class="individual_label">Title :</p>
+    <p>{{ cartItem.Book_Title | titlecase }}</p>
   </div>
-  <p>{{ cartItem.Total_Price }}</p>
+  <div class="unit_price">
+    <p class="individual_label">Unit Price :</p>
+    <p>{{ cartItem.Unit_Price }}</p>
+  </div>
+  <div class="quantity_div">
+    <p class="individual_label">Quantity :</p>
+    <div>
+      <button class="increment_btn" (click)="decrementQuantity(cartItem.id)">
+        -
+      </button>
+      <p>{{ cartItem.Quantity }}</p>
+      <button class="decrement_btn" (click)="incrementQuantity(cartItem.id)">
+        +
+      </button>
+    </div>
+  </div>
+  <div class="total_price">
+    <p class="individual_label">Total price :</p>
+    <p>{{ cartItem.Total_Price }}</p>
+  </div>
   <button
     class="coupon_apply_btn"
     (click)="applyClick(cartItem.Book_Id, cartItem.id)"
   >
     Apply Coupon
   </button>
-  <p>{{ cartItem.Discount }}</p>
-  <p>{{ cartItem.Amount_Payable }}</p>
+  <div class="discount">
+    <p class="individual_label">Discount :</p>
+    <p>{{ cartItem.Discount }}</p>
+  </div>
+
+  <div class="amount_payable">
+    <p class="individual_label">Amount Payable :</p>
+    <p>{{ cartItem.Amount_Payable }}</p>
+  </div>
 
   <button
     class="cart_item_delete_btn"

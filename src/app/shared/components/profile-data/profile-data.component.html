@@ -1,0 +1,71 @@
+<div class="user_data">
+  <!-- <div>
+    <p>First Name</p>
+    <p>{{ userData.First_Name }}</p>
+  </div>
+  <div>
+    <p>Last Name</p>
+    <p>{{ userData.Last_Name }}</p>
+  </div>
+  <div>
+    <p>Email</p>
+    <p>{{ userData.Email }}</p>
+  </div>
+  <div>
+    <p>Address line 1</p>
+    <p>{{ userData.Address_line1 }}</p>
+  </div>
+  <div>
+    <p>Address line 2</p>
+    <p>{{ userData.Address_line2 }}</p>
+  </div>
+  <div>
+    <p>Address line 3</p>
+    <p>{{ userData.Address_line3 }}</p>
+  </div>
+  <div>
+    <p>City</p>
+    <p>{{ userData.City }}</p>
+  </div>
+  <div>
+    <p>Mobile</p>
+    <p>{{ userData.Mobile }}</p>
+  </div> -->
+  <div class="top_container">
+    <div class="profile_pic_container">
+      <img src="../../../../assets/icons/pic.png" alt="" />
+    </div>
+
+    <div>
+      <p>
+        {{ userData.First_Name | titlecase }}
+        {{ userData.Last_Name | titlecase }}
+      </p>
+      <p>
+        <small>{{ userData.Email }}</small>
+      </p>
+    </div>
+  </div>
+  <div class="bottom_details_container">
+    <div class="individual_details">
+      <label for="">Address</label>
+      <div class="details">
+        <p>{{ userData.Address_line1 | titlecase }}</p>
+        <p>{{ userData.Address_line2 | titlecase }}</p>
+        <p>{{ userData.Address_line3 | titlecase }}</p>
+      </div>
+    </div>
+    <div class="individual_details">
+      <label for="">City</label>
+      <div class="details">
+        <p>{{ userData.City }}</p>
+      </div>
+    </div>
+    <div class="individual_details">
+      <label for="">Mobile</label>
+      <div class="details">
+        <p>{{ userData.Mobile }}</p>
+      </div>
+    </div>
+  </div>
+</div>

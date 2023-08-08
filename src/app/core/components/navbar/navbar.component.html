@@ -1,5 +1,5 @@
 <div class="navbar">
-  <!-- <div class="hamburger">icon</div> -->
+  <div class="hamburger" (click)="toggleSidebar()">icon</div>
   <div class="navbar_left">
     <a routerLink="/user/home"><h2>Bookify</h2></a>
     <a *ngIf="role === 'admin'" routerLink="/admin">Books</a>
@@ -10,14 +10,28 @@
     <a *ngIf="role === 'admin'" routerLink="/admin/coupons/create"
       >Create Coupon</a
     >
-    <a *ngIf="role === 'user'" routerLink="/user/cart">Cart</a>
-    <a *ngIf="role === 'user'" routerLink="/user/myorders">My orders</a>
-    <div (click)="updateDropDown()" class="dropDownbtn">
-      user
+    <span class="nav_link" *ngIf="token && role === 'admin'" (click)="logout()"
+      >Logout</span
+    >
+    <!-- <a *ngIf="role === 'user'" routerLink="/user/cart">Cart</a>
+    <a *ngIf="role === 'user'" routerLink="/user/myorders">My orders</a> -->
+    <div *ngIf="role === 'user'" class="dropDownbtn">
+      <div class="username" (click)="updateDropDown()">
+        <p>{{ userName }}</p>
+
+        <img
+          src="../../../../assets/icons/pngwing.com.png"
+          class="arrow"
+          alt=""
+        />
+      </div>
+
       <div
         class="dropDownMenu"
         [ngClass]="isDropDownOpen ? 'dropDownShow' : 'dropDownHide'"
+        (click)="updateDropDown()"
       >
+        <a routerLink="/user/profile">Profile</a>
         <a routerLink="/user/cart">Cart</a>
         <a routerLink="/user/myorders">My Orders</a>
         <a routerLink="/user/home">Books</a>
@@ -25,4 +39,16 @@
       </div>
     </div>
   </div>
+</div>
+<!-- --------------------sidebar------------------- -->
+
+<div
+  class="sidebar"
+  [ngClass]="isSidebarOpen ? 'sidebar_show' : 'sidebar_hide'"
+>
+  <a routerLink="/user/profile">Profile</a>
+  <a routerLink="/user/cart">Cart</a>
+  <a routerLink="/user/myorders">My Orders</a>
+  <a routerLink="/user/home">Books</a>
+  <span class="nav_link" *ngIf="token" (click)="logout()">Logout</span>
 </div>

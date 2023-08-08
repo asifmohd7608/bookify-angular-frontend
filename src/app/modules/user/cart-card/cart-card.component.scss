@@ -7,7 +7,7 @@
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 0.5rem;
-  padding: 1.5rem 0rem;
+  padding: 1.5rem 0.5rem;
   //   > .img_container {
   //     width: 80px;
   //     height: 100px;
@@ -21,11 +21,37 @@
   //     }
   //   }
   .quantity_div {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
+    div {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
     button {
       padding: 0.3rem 0.5rem;
+    }
+    .increment_btn {
+      color: white;
+      font-weight: 700;
+      background-color: rgb(8, 129, 8);
+      border: none;
+      border-radius: 0.3rem;
+      border: 2px solid rgb(129, 184, 129);
+      &:hover {
+        background-color: green;
+        outline: 1px solid rgb(129, 184, 129);
+      }
+    }
+    .decrement_btn {
+      color: white;
+      font-weight: 700;
+      background-color: rgb(156, 15, 15);
+      border-radius: 0.3rem;
+      border: 2px solid rgb(221, 107, 107);
+      &:hover {
+        background-color: rgb(146, 23, 23);
+        outline: 1px solid rgb(221, 107, 107);
+      }
     }
   }
 }
@@ -77,5 +103,57 @@
   &:hover {
     background-color: rgb(13, 69, 122);
     box-shadow: 0 0 0px 3px rgb(211, 211, 211);
+  }
+}
+.individual_label {
+  display: none;
+}
+@media (width<1100px) {
+  .title {
+    grid-area: title;
+  }
+  .unit_price {
+    grid-area: unit_price;
+  }
+  .quantity_div {
+    grid-area: quantity_div;
+  }
+  .total_price {
+    grid-area: total_price;
+  }
+  .coupon_apply_btn {
+    grid-area: coupon_apply_btn;
+  }
+  .discount {
+    grid-area: discount;
+  }
+  .amount_payable {
+    grid-area: amount_payable;
+  }
+  .cart_item_delete_btn {
+    grid-area: cart_item_delete_btn;
+  }
+  .cart_item {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    grid-template-areas:
+      "title title"
+      "unit_price unit_price"
+      "quantity_div quantity_div"
+      "total_price total_price"
+      "total_price total_price"
+      "discount discount"
+      "amount_payable amount_payable"
+      "coupon_apply_btn cart_item_delete_btn";
+    > div {
+      width: 100%;
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+  }
+  .individual_label {
+    display: inline-block;
   }
 }

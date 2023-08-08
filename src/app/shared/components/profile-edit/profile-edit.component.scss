@@ -1,0 +1,186 @@
+// .profile_edit_form {
+//   max-width: 600px;
+//   margin-inline: auto;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 1rem;
+//   > div {
+//     display: flex;
+//     justify-content: space-between;
+//   }
+//   .address {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1rem;
+
+//     > div {
+//       display: flex;
+//       justify-content: space-between;
+//     }
+//   }
+//   input {
+//     border: 1px solid rgb(153, 153, 153);
+//     border-radius: 0.5rem;
+//     height: 2.2rem;
+//     padding: 0 0.8rem;
+//     outline: none;
+//     font-size: 0.8rem;
+//   }
+//   button {
+//     display: block;
+//     max-width: fit-content;
+//     margin: 2rem auto 0 auto;
+//     padding: 0.5rem 1rem;
+//     border-radius: 0.5rem;
+//     color: white;
+//     border: 2px solid rgb(146, 146, 209);
+//     background-color: rgb(67, 67, 114);
+//     &:hover {
+//       outline: 1px solid rgb(118, 118, 168);
+//       background-color: rgb(57, 57, 92);
+//     }
+//   }
+// }
+
+.container {
+  max-width: 600px;
+  margin-inline: auto;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 30px 5px rgb(199, 199, 245);
+  h2 {
+    max-width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+  }
+  .form_header {
+    max-width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 1rem;
+  }
+  .signupForm {
+    display: grid;
+    gap: 2rem;
+    grid-template-areas:
+      " firstname lastname"
+      " address email"
+      " address mobile"
+      " address city"
+      "btn_container btn_container";
+
+    .firstname {
+      grid-area: firstname;
+    }
+    .lastname {
+      grid-area: lastname;
+    }
+    .email {
+      grid-area: email;
+    }
+    .address {
+      grid-area: address;
+    }
+    .city {
+      grid-area: city;
+    }
+    .password {
+      grid-area: password;
+    }
+    .confirm_password {
+      grid-area: passwordConfirm;
+    }
+    .mobile {
+      grid-area: mobile;
+    }
+    > div {
+      display: grid;
+      gap: 0.3rem;
+      position: relative;
+
+      input {
+        border: 1px solid rgb(153, 153, 153);
+        border-radius: 0.5rem;
+        height: 2.2rem;
+        width: 100%;
+        padding: 0 0.8rem;
+        outline: none;
+        font-size: 0.8rem;
+      }
+    }
+    input.ng-invalid.ng-dirty {
+      border-color: rgb(214, 60, 60);
+    }
+    input.ng-invalid.ng-touched {
+      border-color: rgb(214, 60, 60);
+    }
+  }
+  .btn_container {
+    display: flex;
+    .update_btn {
+      display: block;
+      max-width: fit-content;
+      margin: 2rem auto 0 auto;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      color: white;
+      border: 2px solid rgb(146, 146, 209);
+      background-color: rgb(67, 67, 114);
+      &:hover {
+        outline: 1px solid rgb(118, 118, 168);
+        background-color: rgb(57, 57, 92);
+      }
+    }
+    .back_btn {
+      @extend .update_btn;
+      border: 2px solid rgb(102, 134, 221);
+      background-color: rgb(33, 77, 199);
+      &:hover {
+        outline: 1px solid rgb(102, 134, 221);
+        background-color: rgb(29, 63, 156);
+      }
+    }
+  }
+}
+.input_error_msg {
+  color: red;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 3.9rem;
+  left: 0.5rem;
+}
+.error_msg {
+  color: red;
+  font-size: 0.8rem;
+}
+.address_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  > div {
+    display: grid;
+    gap: 0.3rem;
+    position: relative;
+  }
+}
+
+@media (width < 830px) {
+  .container {
+    .signupForm {
+      grid-template-areas:
+        "firstname"
+        "lastname"
+        "email"
+        "address"
+        "city"
+        "mobile"
+        "password"
+        "passwordConfirm";
+      .address_container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+  }
+}

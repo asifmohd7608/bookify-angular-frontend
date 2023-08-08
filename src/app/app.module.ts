@@ -23,6 +23,10 @@ import { CouponCardComponent } from './modules/admin/coupon-card/coupon-card.com
 import { CouponEditComponent } from './modules/admin/coupon-edit/coupon-edit.component';
 import { PopupMessageComponent } from './shared/components/popup-message/popup-message.component';
 import { MyOrdersComponent } from './modules/user/my-orders/my-orders.component';
+import { ProfileComponent } from './shared/components/profile/profile.component';
+import { ProfileEditComponent } from './shared/components/profile-edit/profile-edit.component';
+import { ProfileDataComponent } from './shared/components/profile-data/profile-data.component';
+import { ClickedOutsideDirective } from './shared/directives/clicked-outside.directive';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,10 @@ import { MyOrdersComponent } from './modules/user/my-orders/my-orders.component'
     CouponEditComponent,
     PopupMessageComponent,
     MyOrdersComponent,
+    ProfileComponent,
+    ProfileEditComponent,
+    ProfileDataComponent,
+    // ClickedOutsideDirective,
   ],
   imports: [
     BrowserModule,

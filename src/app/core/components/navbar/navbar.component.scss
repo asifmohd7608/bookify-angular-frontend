@@ -5,7 +5,7 @@
   color: white;
   background-color: rgb(0, 0, 0);
   position: sticky;
-  z-index: 10;
+  z-index: 11;
   top: 0;
   a {
     text-decoration: none;
@@ -31,6 +31,21 @@
   }
   .navbar_right {
     @extend .navbar_left;
+    a {
+      text-decoration: none;
+      color: white;
+      &:hover {
+        color: rgb(190, 190, 190);
+      }
+    }
+    span {
+      text-decoration: none;
+      color: white;
+      &:hover {
+        color: rgb(190, 190, 190);
+        cursor: pointer;
+      }
+    }
   }
 }
 .hamburger {
@@ -43,18 +58,48 @@
   display: none;
 }
 .dropDownShow {
-  display: none;
-}
-.dropDownMenu {
   position: absolute;
   display: flex;
   flex-direction: column;
+}
+.dropDownMenu {
   background-color: black;
-  padding: 0.5rem;
+  border-radius: 0 0 0.3rem 0.3rem;
+  padding: 1rem 2rem 1rem;
   top: 40px;
-  left: -15px;
+  left: -25px;
   text-align: center;
   gap: 1rem;
+}
+.username {
+  display: flex;
+  gap: 8px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.arrow {
+  max-width: 10px;
+  object-fit: cover;
+  display: inline-block;
+}
+
+.sidebar {
+  position: absolute;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: white;
+  height: 100vh;
+  transition: transform 0.3s linear;
+}
+.sidebar_show {
+  transform: translateX(0px);
+}
+.sidebar_hide {
+  transform: translateX(-100px);
 }
 
 @media (width<700px) {

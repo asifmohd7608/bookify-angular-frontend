@@ -13,6 +13,8 @@ export class NavbarComponent implements OnInit {
   token: boolean = false;
   role: string | null = '';
   isDropDownOpen: boolean = false;
+  userName: string | null = '';
+  isSidebarOpen: boolean = false;
 
   ngOnInit(): void {
     // this.token=!!this.auth.getToken();
@@ -21,6 +23,7 @@ export class NavbarComponent implements OnInit {
       if (event.constructor.name === 'NavigationEnd') {
         this.token = !!this.auth.getToken();
         this.role = localStorage.getItem('Role');
+        this.userName = localStorage.getItem('userName');
       }
     });
   }
@@ -33,5 +36,11 @@ export class NavbarComponent implements OnInit {
   }
   updateDropDown() {
     this.isDropDownOpen = !this.isDropDownOpen;
+  }
+  hideDropDown() {
+    this.isDropDownOpen = false;
+  }
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }

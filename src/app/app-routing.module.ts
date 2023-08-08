@@ -13,6 +13,7 @@ import { CouponCreateFormComponent } from './modules/admin/coupon-create-form/co
 import { CouponComponent } from './modules/admin/coupon/coupon.component';
 import { CouponEditComponent } from './modules/admin/coupon-edit/coupon-edit.component';
 import { MyOrdersComponent } from './modules/user/my-orders/my-orders.component';
+import { ProfileComponent } from './shared/components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: LoginFormComponent, canActivate: [isLoggedIn] },
@@ -43,6 +44,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'cart', component: CartComponent },
       { path: 'myorders', component: MyOrdersComponent },
+      { path: 'profile', component: ProfileComponent },
     ],
     canActivate: [userGuard],
   },

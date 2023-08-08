@@ -11,8 +11,11 @@ export const adminGuard: CanActivateFn = () => {
   return auth.getRole().pipe(
     switchMap((res) => {
       if (res.success && res.data.Role == 'admin') {
+        localStorage.setItem('userName', res.data.userName);
         return of(true);
       } else if (res.success && res.data.Role == 'user') {
+        console.log(res);
+        localStorage.setItem('userName', res.data.userName);
         return router.navigate(['/user']);
       } else {
         return router.navigate(['/login']);
@@ -27,8 +30,10 @@ export const userGuard: CanActivateFn = () => {
   return auth.getRole().pipe(
     switchMap((res) => {
       if (res.success && res.data.Role == 'user') {
+        localStorage.setItem('userName', res.data.userName);
         return of(true);
       } else if (res.success && res.data.Role == 'admin') {
+        localStorage.setItem('userName', res.data.userName);
         return router.navigate(['/admin']);
       } else {
         return router.navigate(['/login']);

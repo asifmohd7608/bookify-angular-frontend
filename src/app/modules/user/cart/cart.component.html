@@ -14,31 +14,41 @@
     <p>Amount Payable</p>
     <p>Delete</p>
   </div>
-  <app-cart-card
-    *ngFor="let cartItem of cart"
-    [cartItem]="cartItem"
-    [cart]="cart"
-    (remove)="removeFromCart($event)"
-    (applyCouponClick)="applyBtnEvent($event)"
-  ></app-cart-card>
+  <div class="cart_items_wrapper">
+    <app-cart-card
+      *ngFor="let cartItem of cart"
+      [cartItem]="cartItem"
+      [cart]="cart"
+      (remove)="removeFromCart($event)"
+      (applyCouponClick)="applyBtnEvent($event)"
+    ></app-cart-card>
+  </div>
   <div class="cart_action_buttons">
     <button class="cart_delete_btn" (click)="deleteCart()">Delete Cart</button>
     <button class="cart_checkout_btn" (click)="checkoutCart()">
       Checkout Cart
     </button>
   </div>
+</div>
 
-  <!-- -----------------coupon modal------------------ -->
+<!-- ----------------------------cart empty message------------------ -->
 
-  <div *ngIf="isModalOpen" class="coupon_popup">
-    <h4 class="coupon_apply_form_header">Apply Coupon for</h4>
+<div class="cart_empty_div" *ngIf="!cart.length">
+  <h2>Your cart is empty</h2>
+  <h2 class="cart_empty_add_link" routerLink="/user/home">add books</h2>
+</div>
+
+<!-- -----------------coupon modal------------------ -->
+
+<div *ngIf="isModalOpen" class="coupon_popup_wrapper">
+  <div class="coupon_popup">
     <div class="coupon_apply_form_container">
+      <p class="coupon_apply_form_header" for="coupon">Select Coupon</p>
       <form
         class="coupon_apply_form"
         [formGroup]="couponForm"
         (ngsubmit)="applyCoupon()"
       >
-        <label for="coupon">select Coupon</label>
         <div class="coupon_apply_options_wrapper">
           <select name="Coupon" class="coupon_select" formControlName="coupon">
             <option
@@ -52,20 +62,24 @@
             [disabled]="!couponForm.valid"
             type="submit"
             (click)="applyCoupon()"
+            class="coupon_apply_btn"
           >
             Apply
           </button>
         </div>
       </form>
-      <button (click)="removeCoupon()" id="coupon_remove_btn">Remove</button>
-      <button (click)="closeModal()" id="coupon_remove_btn">Close</button>
+      <div class="btn_container">
+        <button
+          class="remove_btn"
+          (click)="removeCoupon()"
+          id="coupon_remove_btn"
+        >
+          Remove
+        </button>
+        <button class="close_btn" (click)="closeModal()" id="coupon_remove_btn">
+          Close
+        </button>
+      </div>
     </div>
   </div>
-</div>
-
-<!-- ----------------------------cart empty message------------------ -->
-
-<div class="cart_empty_div" *ngIf="!cart.length">
-  <h2>Your cart is empty</h2>
-  <h2 class="cart_empty_add_link" routerLink="/user/home">add books</h2>
 </div>

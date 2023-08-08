@@ -1,0 +1,11 @@
+<h2 class="header" *ngIf="!isEditEnabled">
+  Profile
+  <span *ngIf="!isEditEnabled" (click)="toggleEdit()"
+    ><img src="../../../../assets//icons/edit-246-32.png" alt=""
+  /></span>
+</h2>
+<app-profile-data *ngIf="!isEditEnabled"></app-profile-data>
+<app-profile-edit
+  *ngIf="isEditEnabled"
+  (editAction)="toggleEdit()"
+></app-profile-edit>
