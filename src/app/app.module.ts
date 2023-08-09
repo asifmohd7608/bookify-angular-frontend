@@ -27,6 +27,7 @@ import { ProfileComponent } from './shared/components/profile/profile.component'
 import { ProfileEditComponent } from './shared/components/profile-edit/profile-edit.component';
 import { ProfileDataComponent } from './shared/components/profile-data/profile-data.component';
 import { ClickedOutsideDirective } from './shared/directives/clicked-outside.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -51,13 +52,14 @@ import { ClickedOutsideDirective } from './shared/directives/clicked-outside.dir
     ProfileComponent,
     ProfileEditComponent,
     ProfileDataComponent,
-    // ClickedOutsideDirective,
+    ClickedOutsideDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

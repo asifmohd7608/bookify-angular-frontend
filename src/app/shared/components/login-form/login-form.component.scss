@@ -3,7 +3,6 @@
   gap: 1rem;
   max-width: 450px;
   margin-inline: auto;
-  //   border: 2px solid rgb(153, 153, 153);
   padding: 3rem 3rem 5rem 3rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 30px 5px rgb(199, 199, 245);
@@ -18,8 +17,8 @@
     input {
       border: 2px solid rgb(153, 153, 153);
       border-radius: 0.5rem;
-      height: 3rem;
-      width: 20rem;
+      height: 2.5rem;
+      width: 100%;
       padding: 0 0.8rem;
       outline: none;
       font-size: 1.2rem;

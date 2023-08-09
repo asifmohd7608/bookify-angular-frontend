@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -7,9 +13,12 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   constructor(public auth: AuthService, public router: Router) {}
-
+  ngOnDestroy(): void {
+    this.isDropDownOpen = false;
+  }
+  @Output() navbarOpenEvent = new EventEmitter();
   token: boolean = false;
   role: string | null = '';
   isDropDownOpen: boolean = false;
@@ -41,6 +50,10 @@ export class NavbarComponent implements OnInit {
     this.isDropDownOpen = false;
   }
   toggleSidebar() {
+    this.navbarOpenEvent.emit();
     this.isSidebarOpen = !this.isSidebarOpen;
+  }
+  closeSidebar() {
+    this.isSidebarOpen = false;
   }
 }

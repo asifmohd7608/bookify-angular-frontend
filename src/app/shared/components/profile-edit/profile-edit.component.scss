@@ -61,12 +61,11 @@
   }
   .signupForm {
     display: grid;
-    gap: 2rem;
+    gap: 1rem;
     grid-template-areas:
       " firstname lastname"
-      " address email"
-      " address mobile"
-      " address city"
+      "  mobile city"
+      " address  address"
       "btn_container btn_container";
 
     .firstname {
@@ -84,15 +83,11 @@
     .city {
       grid-area: city;
     }
-    .password {
-      grid-area: password;
-    }
-    .confirm_password {
-      grid-area: passwordConfirm;
-    }
+
     .mobile {
       grid-area: mobile;
     }
+
     > div {
       display: grid;
       gap: 0.3rem;
@@ -156,7 +151,7 @@
 .address_container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1rem;
   > div {
     display: grid;
     gap: 0.3rem;

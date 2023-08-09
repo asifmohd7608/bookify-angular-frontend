@@ -34,7 +34,6 @@ export class ProfileEditComponent implements OnInit {
   }
   profileForm = this.ufb.group(
     {
-      Email: ['', [Validators.required, Validators.email]],
       First_Name: ['', [Validators.required, Validators.minLength(2)]],
       Last_Name: ['', [Validators.required, Validators.minLength(2)]],
       Address: this.ufb.group({

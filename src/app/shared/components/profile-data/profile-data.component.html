@@ -1,39 +1,26 @@
 <div class="user_data">
-  <!-- <div>
-    <p>First Name</p>
-    <p>{{ userData.First_Name }}</p>
-  </div>
-  <div>
-    <p>Last Name</p>
-    <p>{{ userData.Last_Name }}</p>
-  </div>
-  <div>
-    <p>Email</p>
-    <p>{{ userData.Email }}</p>
-  </div>
-  <div>
-    <p>Address line 1</p>
-    <p>{{ userData.Address_line1 }}</p>
-  </div>
-  <div>
-    <p>Address line 2</p>
-    <p>{{ userData.Address_line2 }}</p>
-  </div>
-  <div>
-    <p>Address line 3</p>
-    <p>{{ userData.Address_line3 }}</p>
-  </div>
-  <div>
-    <p>City</p>
-    <p>{{ userData.City }}</p>
-  </div>
-  <div>
-    <p>Mobile</p>
-    <p>{{ userData.Mobile }}</p>
-  </div> -->
   <div class="top_container">
-    <div class="profile_pic_container">
-      <img src="../../../../assets/icons/pic.png" alt="" />
+    <div class="profile_pic">
+      <div class="profile_pic_container">
+        <img
+          *ngIf="userData.Profile_Pic"
+          src="http://localhost:8080/{{ userData.Profile_Pic }}"
+          alt=""
+        />
+        <img
+          *ngIf="!userData.Profile_Pic"
+          src="../../../../assets/icons/pic.png"
+          alt=""
+        />
+      </div>
+      <div class="icon_wrapper">
+        <img
+          (click)="toggleModal()"
+          class="profile_pic_edit_icon"
+          src="../../../../assets/icons/edit.png"
+          alt=""
+        />
+      </div>
     </div>
 
     <div>
@@ -66,6 +53,46 @@
       <div class="details">
         <p>{{ userData.Mobile }}</p>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- -----------------------modal------------------ -->
+
+<div *ngIf="isModalOpen" class="coupon_popup_wrapper">
+  <div class="coupon_popup">
+    <div class="coupon_apply_form_container">
+      <p class="coupon_apply_form_header" for="coupon">Select image</p>
+      <form
+        class="coupon_apply_form"
+        [formGroup]="picForm"
+        (ngsubmit)="uploadPic()"
+      >
+        <div class="coupon_apply_options_wrapper">
+          <input
+            type="file"
+            formControlName="imageFile"
+            (change)="onImageChange($event)"
+          />
+          <div class="btn_container">
+            <button type="submit" (click)="uploadPic()" class="upload_btn">
+              Upload
+            </button>
+            <button
+              class="close_btn"
+              (click)="closeModal()"
+              id="coupon_remove_btn"
+            >
+              Close
+            </button>
+          </div>
+          <div class="err_msg" *ngIf="picForm.get('imageFile')?.touched">
+            <small *ngIf="picForm.get('imageFile')?.hasError('required')"
+              >please select an image</small
+            >
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>

@@ -8,4 +8,5 @@ export interface User {
   Address_line3: string;
   City: string;
   Mobile: number;
+  Profile_Pic: string;
 }

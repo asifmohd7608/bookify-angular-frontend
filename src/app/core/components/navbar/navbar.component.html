@@ -1,9 +1,21 @@
 <div class="navbar">
-  <div class="hamburger" (click)="toggleSidebar()">icon</div>
+  <div
+    *ngIf="role === 'user' || 'admin'"
+    class="hamburger"
+    (click)="toggleSidebar()"
+    appClickedOutside
+    (clickedEvent)="closeSidebar()"
+  >
+    <img src="../../../../assets/icons/icons8-menu-50.png" alt="" />
+  </div>
   <div class="navbar_left">
     <a routerLink="/user/home"><h2>Bookify</h2></a>
-    <a *ngIf="role === 'admin'" routerLink="/admin">Books</a>
-    <a *ngIf="role === 'admin'" routerLink="/admin/coupons">Coupons</a>
+    <a class="navlink_left" *ngIf="role === 'admin'" routerLink="/admin"
+      >Books</a
+    >
+    <a class="navlink_left" *ngIf="role === 'admin'" routerLink="/admin/coupons"
+      >Coupons</a
+    >
   </div>
   <div class="navbar_right">
     <a *ngIf="role === 'admin'" routerLink="/admin/create">Create Book</a>
@@ -43,12 +55,29 @@
 <!-- --------------------sidebar------------------- -->
 
 <div
+  *ngIf="role === 'user' || 'admin'"
   class="sidebar"
   [ngClass]="isSidebarOpen ? 'sidebar_show' : 'sidebar_hide'"
 >
-  <a routerLink="/user/profile">Profile</a>
-  <a routerLink="/user/cart">Cart</a>
-  <a routerLink="/user/myorders">My Orders</a>
-  <a routerLink="/user/home">Books</a>
-  <span class="nav_link" *ngIf="token" (click)="logout()">Logout</span>
+  <img
+    class="sidebar_back_icon"
+    (click)="toggleSidebar()"
+    src="../../../../assets/icons/left-arrow.png"
+    alt=""
+  />
+  <div *ngIf="role === 'user'">
+    <a routerLink="/user/profile">Profile</a>
+    <a routerLink="/user/cart">Cart</a>
+    <a routerLink="/user/myorders">My Orders</a>
+    <a routerLink="/user/home">Books</a>
+    <span class="nav_link" *ngIf="token" (click)="logout()">Logout</span>
+  </div>
+
+  <div *ngIf="role === 'admin'">
+    <a routerLink="/admin">Books</a>
+    <a routerLink="/admin/coupons">Coupons</a>
+    <a routerLink="/admin/create">Add Book</a>
+    <a routerLink="/admin/coupons/create">Create Coupons</a>
+    <span class="nav_link" *ngIf="token" (click)="logout()">Logout</span>
+  </div>
 </div>

@@ -16,4 +16,7 @@ export class UserService {
   updateProfile(data: User) {
     return this.http.post<any>(`${this.url}/user/profile/update`, data);
   }
+  changePic(data: FormData) {
+    return this.http.post<any>(`${this.url}/user/profile/changepic`, data);
+  }
 }
